@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.upperHeader{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  border-bottom: 1px solid #00000026;
+}
+#nalgeneLogo{
+  height: 70px;
+  width: auto;
+}
+.headerIcon{
+  height: 20px;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+}
+.lowerHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  border-bottom: 1px solid #00000026;
+  padding: 5px 0px 5px 0px;
+}
+#hamburger{
+  border-right: 1px solid #00000026;
+}
+#searchInput{
+  height: 30px;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+.searchBar{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 5px;
+}
+
+.block1{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.marginLeft{
+  background-color: #1e73b585;
+  padding: 10px 0px 0px 50px;
 }
+.b1Titel{
+  padding: 30px 0px 20px 0px;
+}
+.closeH2{
+  margin: 0px 0px 0px 0px;
+}
+.b1Cta{
+  display: flex;
+  align-items: center;
+  padding: 0px 0px 10px 0px
+}
+#ctaArrow{
+  height: 1rem;
+  margin-left: 5px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+#backpack{
+  width: 100%;
+}
+.discoverMore{
+  padding: 10px 10px 10px 50px;
+  background-color: #17C2B1
+}
+.discoverUl{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0px;
+  padding: 5px 0px 5px 0px;
+  overflow-x: scroll;
+}
+.discoverUl>li{
+  font-weight: bold;
+  width: 150px;
+  padding: 10px;
 }
