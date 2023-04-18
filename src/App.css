@@ -38,11 +38,11 @@
   padding-left: 5px;
 }
 
-.block1{
+.block1,.block2{
   color: white;
 }
 
-.marginLeft{
+.marginLeft1{
   background-color: #1e73b585;
   padding: 10px 0px 0px 50px;
 }
@@ -82,4 +82,30 @@
   font-weight: bold;
   width: 150px;
   padding: 10px;
+}
+
+
+
+.marginLeft2{
+  background-color: #171DC2;
+  padding: 10px 0px 0px 50px;
+  margin-top: 50px;
+}
+.b2Titel{
+  padding: 30px 0px 20px 0px;
+}
+.closeH2{
+  margin: 0px 0px 0px 0px;
+}
+.b2Cta{
+  display: flex;
+  align-items: center;
+  padding: 0px 0px 10px 0px
+}
+#ctaArrow{
+  height: 1rem;
+  margin-left: 5px;
+}
+#colors{
+  width: 100%;
 }
