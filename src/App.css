@@ -1,4 +1,6 @@
-
+:root{
+  --padding-left: 10px 0px 5px 30px;
+}
 .upperHeader{
   display: flex;
   align-items: center;
@@ -44,7 +46,7 @@
 
 .marginLeft1{
   background-color: #1e73b585;
-  padding: 10px 0px 0px 50px;
+  padding: var(--padding-left);
 }
 .b1Titel{
   padding: 30px 0px 20px 0px;
@@ -57,6 +59,10 @@
   align-items: center;
   padding: 0px 0px 10px 0px
 }
+.ctaLink{
+  text-decoration: none;
+  color: white;
+}
 #ctaArrow{
   height: 1rem;
   margin-left: 5px;
@@ -66,7 +72,7 @@
   width: 100%;
 }
 .discoverMore{
-  padding: 10px 10px 10px 50px;
+  padding: var(--padding-left);
   background-color: #17C2B1
 }
 .discoverUl{
@@ -88,7 +94,7 @@
 
 .marginLeft2{
   background-color: #171DC2;
-  padding: 10px 0px 0px 50px;
+  padding: var(--padding-left);
   margin-top: 50px;
 }
 .b2Titel{
@@ -108,4 +114,31 @@
 }
 #colors{
   width: 100%;
+}
+.categoryHeader{
+  padding: var(--padding-left);
+  border-bottom: 1px solid #00000026;
+}
+.categoryHeaderTitle{
+  padding: 10px 0px 5px 0px;
+  font-weight: bold;
+}
+.categoryUl{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0px;
+  padding: 5px 0px 5px 0px;
+  overflow-x: scroll;
+}
+.categoryUl>li{
+  font-weight: bold;
+  padding: 5px 10px 5px 10px;
+  margin-right: 5px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dcd7d74a;
 }

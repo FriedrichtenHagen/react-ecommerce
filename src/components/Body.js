@@ -1,6 +1,12 @@
 import arrow from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/arrow.png"
 import backpack from "/home/friedrichtenhagen/ecommerce-site/src/images/backpack.jpg"
 import colors from "/home/friedrichtenhagen/ecommerce-site/src/images/colors.webp"
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
 
 export default function Body(){
     return(
@@ -13,7 +19,7 @@ export default function Body(){
                     </div>
                     <div className="b1Cta">
                         <div className="b1CtaText">
-                            Order now
+                        <Link to="category" className="ctaLink">Order Now</Link>
                         </div>
                         <img src={arrow} id="ctaArrow" alt="arrow right" />
                     </div>
@@ -24,7 +30,7 @@ export default function Body(){
                             Discover more:
                         </div>
                         <ul className="discoverUl">
-                            <li>Water Bottles</li>
+                            <li></li>
                             <li>Accessories</li>
                             <li>Kids</li>
                             <li>Customize</li>
