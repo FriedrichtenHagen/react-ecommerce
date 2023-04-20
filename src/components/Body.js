@@ -2,9 +2,6 @@ import arrow from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/arrow
 import backpack from "/home/friedrichtenhagen/ecommerce-site/src/images/backpack.jpg"
 import colors from "/home/friedrichtenhagen/ecommerce-site/src/images/colors.webp"
 import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
   Link,
 } from "react-router-dom";
 

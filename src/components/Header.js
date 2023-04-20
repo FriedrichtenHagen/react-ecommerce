@@ -5,7 +5,9 @@ import user from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/user.p
 import lang from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/internet.png"
 import hamburger from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/hamburger.png"
 import search from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/search.png"
-
+import {
+    Link,
+  } from "react-router-dom";
 
 export default function Header(){
 const inputDefault = "Search..."
@@ -14,7 +16,9 @@ const inputDefault = "Search..."
     return(
         <div className="header">
             <div className="upperHeader">
-                <img src={nalgeneLogo} alt="nalgene logo" id="nalgeneLogo"/>
+                <Link to="/" className="ctaLink">
+                    <img src={nalgeneLogo} alt="nalgene logo" id="nalgeneLogo"/>
+                </Link>
                 <div className="headerIcons">
                     <img src={heart} className="headerIcon" alt="heart" />
                     <img src={user} className="headerIcon" alt="user" />

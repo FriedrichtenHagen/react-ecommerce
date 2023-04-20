@@ -1,7 +1,16 @@
+import { useState } from 'react';
+import data from "../data/product-feed.json"
 import Header from "../components/Header";
+import ProductFeed from "../components/ProductFeed";
 import Footer from '../components/Footer';
 
-export default function categoryPage(){
+
+
+
+export default function CategoryPage(){
+    const [productFeed, setProductFeed] = useState(data)
+
+
     return(
         <div className="categoryPage">
             <Header/>
@@ -16,9 +25,7 @@ export default function categoryPage(){
                         <li>Sale</li>
                     </ul>
                 </div>
-                <div className="productFeed">
-                    
-                </div>
+                <ProductFeed  productFeed={productFeed}/>
             <Footer/>
         </div>
     )
