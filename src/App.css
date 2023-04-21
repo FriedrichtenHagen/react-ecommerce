@@ -142,3 +142,16 @@
   align-items: center;
   background-color: #dcd7d74a;
 }
+.productFeed{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.productCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.productImage{
+  height: 200px;
+}
