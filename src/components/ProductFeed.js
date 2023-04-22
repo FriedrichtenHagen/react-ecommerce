@@ -7,7 +7,7 @@ export default function ProductFeed({productFeed}){
 
     const productList = productFeed.map(product => {
         return(
-            <ProductCard product={product}/>
+            <ProductCard product={product} key={crypto.randomUUID()}/>
         )
 
     })

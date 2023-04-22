@@ -1,14 +1,14 @@
 
-import butter from "/home/friedrichtenhagen/ecommerce-site/src/images/product-images/32oz-WM-Butter-Front-505x763.webp"
 
-export default function ProductCard(product){
+export default function ProductCard({product}){
 
-console.log(product.product.name)
+console.log(product.name)
 
     return(
         <div className="productCard">
-            <img src={butter} className="productImage" alt={product.name} />
-            <div className="ddid">{product.product.name}</div>
+            <img src={product.image} className="productImage" alt={product.name} />
+            <div className="productName">{product.name}</div>
+            <div className="productPrice">{product.price} EUR</div>
         </div>
     )
 } 

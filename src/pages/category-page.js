@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import data from "../data/product-feed.json"
+import data from "../data/product-feed.js"
 import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
 import Footer from '../components/Footer';
