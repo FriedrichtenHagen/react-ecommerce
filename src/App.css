@@ -1,5 +1,15 @@
 :root{
   --padding-left: 10px 0px 5px 30px;
+  width: 100%;
+}
+body{
+  width: 100%;
+}
+#root{
+  width: 100%;
+}
+.App{
+  width: 100%;
 }
 .upperHeader{
   display: flex;
@@ -145,6 +155,7 @@
 .productFeed{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-bottom: 5px;
 }
 .productCard{
   display: flex;
@@ -154,4 +165,34 @@
 }
 .productImage{
   height: 200px;
+}
+
+
+
+.footer{
+  background-color: black;
+  color: white;
+  padding: 25px 10px 10px 10px;
+}
+.footerTitles{
+  font-size: small;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+.footerTitles>div{
+  padding: 4px 10px 4px 10px;
+  height: 1rem;
+}
+#mitgliedschaft,#impressum,#datenschutz{
+  border-right: 1px solid white;
+}
+.socialIconCont{
+  padding: 5px;
+}
+.socialIcons>img{
+  background-color: white;
+  height: 1rem;
+  padding: 5px;
+  margin: 5px 5px 0px 0px;
 }
