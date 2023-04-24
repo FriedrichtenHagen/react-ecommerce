@@ -27,7 +27,6 @@ export default function Body(){
                             Discover more:
                         </div>
                         <ul className="discoverUl">
-                            <li></li>
                             <li>Accessories</li>
                             <li>Kids</li>
                             <li>Customize</li>

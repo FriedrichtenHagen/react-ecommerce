@@ -3,9 +3,7 @@ import data from "../data/product-feed.js"
 import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
 import Footer from '../components/Footer';
-import {
-    Link,
-  } from "react-router-dom";
+
 
 
 
@@ -29,9 +27,6 @@ export default function CategoryPage(){
                 </div>
                 <ProductFeed  productFeed={productFeed}/>
             <Footer/>
-            <Link to="/categoryPage" className="ctaLink">
-                 aerg
-                </Link>
         </div>
     )
 }    
