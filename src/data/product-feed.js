@@ -14,42 +14,42 @@ import pear from "/home/friedrichtenhagen/ecommerce-site/src/images/product-imag
 const data = [
         {
             "price": 45.99,
-            "name": "Bottle Butter",
+            "name": "32oz Wide Mouth Sustain Water Bottle Butter",
             "image": butter
         },
         {
             "price": 49.99,
-            "name": "Bottle Cherry Blossom",
+            "name": "32oz Wide Mouth Sustain Water Bottle Cherry Blossom",
             "image": cherry
         },
         {
             "price": 49.99,
-            "name": "Bottle Cotton",
+            "name": "32oz Wide Mouth Sustain Water Bottle Cotton",
             "image": cotton
         },
         {
             "price": 45.99,
-            "name": "Bottle Denim",
+            "name": "32oz Wide Mouth Sustain Water Bottle Denim",
             "image": denim
         },
         {
             "price": 45.99,
-            "name": "Bottle Jade",
+            "name": "32oz Wide Mouth Sustain Water Bottle Jade",
             "image": jade
         },
         {
             "price": 59.99,
-            "name": "Bottle Mocha",
+            "name": "32oz Wide Mouth Sustain Water Bottle Mocha",
             "image": mocha
         },
         {
             "price": 59.99,
-            "name": "Bottle Clementine",
+            "name": "32oz Wide Mouth Sustain Water Bottle Clementine",
             "image": clementine
         },
         {
             "price": 59.99,
-            "name": "Bottle Pear",
+            "name": "32oz Wide Mouth Sustain Water Bottle Pear",
             "image": pear
         }
 
