@@ -32,6 +32,8 @@ export default function ProductPage(){
         // cart needs to be in state
         // highest shared level of product page and header (display the number of cart items in the cart icon)
 
+        // look into how the modal animation works
+
     }
 
 
@@ -71,7 +73,15 @@ export default function ProductPage(){
             </div>
             <Footer/>
             <div className={"cartModal " + (cartModalActive ? "visible" : "hidden")}>
-                Lets party
+                <ul className='sizeList' >
+                    <li>XS</li>
+                    <li>S</li>
+                    <li>M</li>
+                    <li>L</li>
+                    <li>XL</li>
+                </ul>
+            </div>
+            <div className={"cartModalBackground " + (cartModalActive ? "backgroundVisible" : "backgroundHidden")} onClick={handleSizeClick}>
             </div>
         </div>
     )
