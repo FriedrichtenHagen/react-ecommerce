@@ -219,12 +219,11 @@ body{
   height: 400px;
 }
 .productInfo{
-  background-color: #eeeeee;
   width: 100%;
   padding: 5px;
 }
 .productTitle{
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .productPriceCon{
   display: flex;
@@ -233,4 +232,36 @@ body{
 .includesTax{
   font-size: 0.8rem;
   margin-left: 5px;
+}
+
+.pickSize, .addToCart{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+  padding: 5px;
+  border: 1px solid black;
+  height: 30px;
+  font-size: 1.5rem;
+}
+
+.pickSize{
+  justify-content: space-between;
+  margin-top: 30px;
+  border: 1px solid black;
+}
+.size{
+  font-size: 1.5rem;
+}
+#arrowDown{
+  height: 2rem;
+}
+.addToCart{
+  justify-content: center;
+  margin-top: 10px;
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+  margin-bottom: 30px;
 }

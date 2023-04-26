@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Footer from '../components/Footer';
 import { useParams } from "react-router-dom";
 import data from "../data/product-feed"
-
+import arrowDown from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/arrowDown.png"
 
 export default function ProductPage(){
 
@@ -31,6 +31,14 @@ export default function ProductPage(){
                             incl. taxes
                         </div>
                     </div>
+                </div>
+                <div className="pickSize">
+                
+                    <div className="size">XL</div>
+                    <img src={arrowDown} alt="arrow" id="arrowDown" />
+                </div>
+                <div className="addToCart">
+                    Add to cart
                 </div>
             </div>
             <Footer/>
