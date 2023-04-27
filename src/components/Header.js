@@ -5,13 +5,13 @@ import user from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/user.p
 import lang from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/internet.png"
 import hamburger from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/hamburger.png"
 import search from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/search.png"
-import {
-    Link,
-  } from "react-router-dom";
+import {Link } from "react-router-dom";
 
-export default function Header(){
+export default function Header({ cart }){
 const inputDefault = "Search..."
 
+    // display the number of items in the cart
+    let cartItemNum = cart.length
 
     return(
         <div className="header">
@@ -23,7 +23,15 @@ const inputDefault = "Search..."
                     <img src={heart} className="headerIcon" alt="heart" />
                     <img src={user} className="headerIcon" alt="user" />
                     <img src={lang} className="headerIcon" alt="language select" />
+
+
+     
+                    <div className="cartNumber">{cartItemNum}</div>
                     <img src={shoppingcart} className="headerIcon" alt="cart" />
+                   
+
+
+
                 </div>
             </div>
             <div className="lowerHeader">

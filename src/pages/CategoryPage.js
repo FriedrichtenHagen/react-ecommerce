@@ -7,13 +7,13 @@ import Footer from '../components/Footer';
 
 
 
-export default function CategoryPage(){
+export default function CategoryPage( {cart}){
     const [productFeed, setProductFeed] = useState(data)
 
 
     return(
         <div className="categoryPage">
-            <Header/>
+            <Header cart={cart}/>
                 <div className="categoryHeader">
                     <div className="categoryHeaderTitle">Nalgene Bottles on SALE</div>
                     <ul className="categoryUl">

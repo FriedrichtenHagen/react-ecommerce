@@ -6,7 +6,7 @@ import data from "../data/product-feed"
 import arrowDown from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/arrowDown.png"
 
 
-export default function ProductPage(){
+export default function ProductPage({cart, handleAddingItemToCart}){
     const [cartModalActive, setCartModalActive] = useState(false)
 
 
@@ -24,22 +24,12 @@ export default function ProductPage(){
         setCartModalActive(prevState => !prevState)
     }
 
-    // add item to cart
-    function handleCartClick(){
-        console.log(product)
 
-
-        // cart needs to be in state
-        // highest shared level of product page and header (display the number of cart items in the cart icon)
-
-        // look into how the modal animation works
-
-    }
 
 
     return(
         <div className="productPage">
-            <Header/>
+            <Header cart={cart}/>
             <div className="productBody">
                 <img src={product.image} className="productPageImage" alt={product.name} />
                 <div className="productInfo">
@@ -64,7 +54,7 @@ export default function ProductPage(){
                 </div>
 
 
-                <div className="addToCart" onClick={handleCartClick}>
+                <div className="addToCart" onClick={()=>{handleAddingItemToCart(product)}}>
                     Add to cart
                 </div>
 
