@@ -339,3 +339,22 @@ body{
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.227);
 }
+
+
+.shoppingCartCard{
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.236);
+}
+.shoppingCartCard>img{
+  height: 100px;
+}
+.shoppingCartCardTitel{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.shoppingCartCardPrice{
+  text-align: right;
+}

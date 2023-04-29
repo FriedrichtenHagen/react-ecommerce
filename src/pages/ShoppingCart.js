@@ -1,14 +1,14 @@
 import Header from "../components/Header.js"
 import Footer from '../components/Footer';
 import ProductCard from "../components/ProductCard"
-
+import ShoppingCartCard from "../components/ShoppingCartCard"
 
 
 
 export default function ShoppingCart( {cart}) {
     const cartList = cart.map(product => {
         return(
-            <ProductCard product={product} key={crypto.randomUUID()}/>
+            <ShoppingCartCard product={product} key={crypto.randomUUID()}/>
         )
     })
 
