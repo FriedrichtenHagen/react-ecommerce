@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Homepage from "./pages/HomePage.js";
 import Category from "./pages/CategoryPage.js";
 import ProductPage from "./pages/ProductPage.js";
+import ShoppingCart from "./pages/ShoppingCart.js";
 
 
 
@@ -26,6 +27,7 @@ const RouteSwitch = () => {
           cart={cart} 
           handleAddingItemToCart={handleAddingItemToCart} 
         />}/>
+         <Route path="/shoppingcart" element={<ShoppingCart cart={cart}/>} />
       </Routes>
     </BrowserRouter>
   );

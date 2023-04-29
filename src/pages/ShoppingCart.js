@@ -1,9 +1,11 @@
 import Header from "../components/Header.js"
 import Footer from '../components/Footer';
+import ProductCard from "../components/ProductCard"
 
 
 
-function ShoppingCart( {cart}) {
+
+export default function ShoppingCart( {cart}) {
     const cartList = cart.map(product => {
         return(
             <ProductCard product={product} key={crypto.randomUUID()}/>
@@ -14,9 +16,10 @@ function ShoppingCart( {cart}) {
         <div className="ShoppingCart">
             <Header cart={cart}/>
             {cartList}
+            uwaga
             <Footer/>
         </div>
     );
 }
 
-export default Homepage;
+

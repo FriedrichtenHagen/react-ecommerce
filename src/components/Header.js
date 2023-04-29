@@ -25,10 +25,12 @@ const inputDefault = "Search..."
                     <img src={lang} className="headerIcon" alt="language select" />
 
 
-     
-                    <div className="cartNumber">{cartItemNum}</div>
-                    <img src={shoppingcart} className="headerIcon" alt="cart" />
-                   
+     <Link to="/shoppingcart" className="ctaLink">
+         
+                        <div className="cartNumber">{cartItemNum}</div>
+                        <img src={shoppingcart} className="headerIcon" alt="cart" />
+         
+     </Link>
 
 
 
