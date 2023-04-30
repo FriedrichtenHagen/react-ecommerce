@@ -1,5 +1,7 @@
 export default function ShoppingCartCard( {product}) {
     // calculate quantity of items in cart array
+    // add delete button
+    // calculate the price times number of products
 
     return (
         <div className="shoppingCartCard">

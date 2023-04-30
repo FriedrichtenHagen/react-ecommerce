@@ -1,11 +1,15 @@
 import Header from "../components/Header.js"
 import Footer from '../components/Footer';
-import ProductCard from "../components/ProductCard"
 import ShoppingCartCard from "../components/ShoppingCartCard"
 
 
 
 export default function ShoppingCart( {cart}) {
+
+    // remove duplicates from cart
+    // add the number of multiple items
+
+
     const cartList = cart.map(product => {
         return(
             <ShoppingCartCard product={product} key={crypto.randomUUID()}/>
@@ -13,10 +17,12 @@ export default function ShoppingCart( {cart}) {
     })
 
     return (
-        <div className="ShoppingCart">
+        <div className="shoppingCart">
             <Header cart={cart}/>
-            {cartList}
-            uwaga
+            <div className="shoppingCartHeader">
+                Shopping Cart ({cart.length} products)
+            </div>
+            <div className="shoppingCards">{cartList}</div>
             <Footer/>
         </div>
     );
