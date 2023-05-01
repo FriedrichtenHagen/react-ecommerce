@@ -13,10 +13,31 @@ const RouteSwitch = () => {
   const [cart, setCart] = useState([])
 
   function handleAddingItemToCart(selectedProduct){
-    // add item to cart
-    setCart([...cart, selectedProduct])
-  }
+    
+    // check for duplicate
+    const duplicatePosition = checkForObjectInArray(selectedProduct, cart)
+    if(duplicatePosition!==false){
+      // if duplicate add 1 to product counter
+      
+      console.log(selectedProduct.amount)
+    } else{
+      // set amount to 0
+      selectedProduct.amount = 0
+      // add item to cart
+      setCart([...cart, selectedProduct])
+    }
+    
 
+
+  }
+  function checkForObjectInArray(object, array){
+    for(let i=0; i<array.length; i++){
+      if(array[i].name===object.name){
+        return i
+      }
+    }
+    return false
+  }
 
   return (
     <BrowserRouter>
