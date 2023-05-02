@@ -11,8 +11,11 @@ export default function Header({ cart }){
 const inputDefault = "Search..."
 
     // display the number of items in the cart
-    let cartItemNum = cart.length
-
+    let cartItemNum = 0
+    cart.forEach(product => {
+        cartItemNum = cartItemNum + product.amount
+    })
+ 
     return(
         <div className="header">
             <div className="upperHeader">

@@ -7,13 +7,17 @@ import ShoppingCartCard from "../components/ShoppingCartCard"
 export default function ShoppingCart( {cart}) {
 
     // remove duplicates from cart
-    const cartWithoutDuplicates = [...new Set(cart)]
+    // const cartWithoutDuplicates = [...new Set(cart)]
     // add the number of multiple items
 
 
-    const cartList = cartWithoutDuplicates.map(product => {
+    const cartList = cart.map(product => {
+
         return(
-            <ShoppingCartCard product={product} key={crypto.randomUUID()}/>
+            <ShoppingCartCard   
+                product={product} 
+                key={crypto.randomUUID()}
+            />
         )
     })
 

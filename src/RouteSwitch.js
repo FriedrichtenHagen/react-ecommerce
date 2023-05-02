@@ -18,17 +18,17 @@ const RouteSwitch = () => {
     const duplicatePosition = checkForObjectInArray(selectedProduct, cart)
     if(duplicatePosition!==false){
       // if duplicate add 1 to product counter
-      
-      console.log(selectedProduct.amount)
+      let addedCart = cart.slice()
+      addedCart[duplicatePosition].amount++
+      setCart(addedCart)
+      console.log(cart)
     } else{
       // set amount to 0
-      selectedProduct.amount = 0
+      selectedProduct.amount = 1
       // add item to cart
       setCart([...cart, selectedProduct])
     }
     
-
-
   }
   function checkForObjectInArray(object, array){
     for(let i=0; i<array.length; i++){

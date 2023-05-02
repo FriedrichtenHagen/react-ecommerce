@@ -368,5 +368,9 @@ body{
   padding-left: 30px;
 }
 .shoppingCartCardPrice{
+  text-align: left;
+  font-size: 0.8rem;
+}
+.shoppingCartCardAmount{
   text-align: right;
 }

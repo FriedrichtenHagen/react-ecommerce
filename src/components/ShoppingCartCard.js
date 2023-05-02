@@ -9,6 +9,7 @@ export default function ShoppingCartCard( {product}) {
             <div className="shoppingCartCardTitel">
                 <div className="shoppingCartCardName">{product.name}</div>
                 <div className="shoppingCartCardPrice">{product.price}</div>
+                <div className="shoppingCartCardAmount">{product.amount}</div>
             </div>
         </div>
     );
