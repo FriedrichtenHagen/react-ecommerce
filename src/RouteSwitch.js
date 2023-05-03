@@ -13,7 +13,6 @@ const RouteSwitch = () => {
   const [cart, setCart] = useState([])
 
   function handleAddingItemToCart(selectedProduct){
-    
     // check for duplicate
     const duplicatePosition = checkForObjectInArray(selectedProduct, cart)
     if(duplicatePosition!==false){
@@ -29,6 +28,27 @@ const RouteSwitch = () => {
       setCart([...cart, selectedProduct])
     }
     
+  }
+  function handleRemovingItemFromCart(selectedProduct){
+    
+    console.log(selectedProduct)
+    // find product position in array
+    const cartPosition = checkForObjectInArray(selectedProduct, cart)
+
+    // check if product amount is one
+    if(cart[cartPosition].amount===1){
+      // remove item from cart
+      let removedCart = cart.slice()
+      removedCart.splice(cartPosition, 1)
+      setCart(removedCart)
+
+    } else{
+      // remove 1 item from product amount
+      let deletedCart = cart.slice()
+      deletedCart[cartPosition].amount--
+      setCart(deletedCart)
+
+    }
   }
   function checkForObjectInArray(object, array){
     for(let i=0; i<array.length; i++){
@@ -48,7 +68,11 @@ const RouteSwitch = () => {
           cart={cart} 
           handleAddingItemToCart={handleAddingItemToCart} 
         />}/>
-         <Route path="/shoppingcart" element={<ShoppingCart cart={cart}/>} />
+        <Route path="/shoppingcart" element=
+          {<ShoppingCart 
+            cart={cart}
+            handleRemovingItemFromCart={handleRemovingItemFromCart}
+          />} />
       </Routes>
     </BrowserRouter>
   );

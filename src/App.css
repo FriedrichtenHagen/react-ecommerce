@@ -374,3 +374,9 @@ body{
 .shoppingCartCardAmount{
   text-align: right;
 }
+.card-header{
+  display: flex;
+}
+.deleteIcon{
+  height: 1rem;
+}

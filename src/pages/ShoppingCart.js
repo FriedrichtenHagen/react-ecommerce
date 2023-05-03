@@ -4,7 +4,7 @@ import ShoppingCartCard from "../components/ShoppingCartCard"
 
 
 
-export default function ShoppingCart( {cart}) {
+export default function ShoppingCart( {cart, handleRemovingItemFromCart}) {
 
     // remove duplicates from cart
     // const cartWithoutDuplicates = [...new Set(cart)]
@@ -17,6 +17,7 @@ export default function ShoppingCart( {cart}) {
             <ShoppingCartCard   
                 product={product} 
                 key={crypto.randomUUID()}
+                handleRemovingItemFromCart={handleRemovingItemFromCart}
             />
         )
     })

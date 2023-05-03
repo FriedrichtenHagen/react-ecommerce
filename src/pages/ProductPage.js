@@ -20,7 +20,6 @@ export default function ProductPage({cart, handleAddingItemToCart}){
 
     // open the size menu
     function handleSizeClick(){
-        console.log("marla")
         setCartModalActive(prevState => !prevState)
     }
 
