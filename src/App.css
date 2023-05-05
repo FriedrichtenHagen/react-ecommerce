@@ -355,7 +355,7 @@ body{
   display: flex;
   align-items: center;
   padding: 5px 16px 5px 16px;
-
+  height: 90px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.236);
 }
 .shoppingCartCard>img{
@@ -372,10 +372,16 @@ body{
   font-size: 0.8rem;
 }
 .shoppingCartCardAmount{
-  text-align: right;
+  padding: 5px 10px 5px 10px;
+    text-align: center;
 }
 .card-header{
   display: flex;
+}
+.card-body{
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 .deleteIcon{
   height: 1rem;

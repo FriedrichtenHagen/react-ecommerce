@@ -50,6 +50,19 @@ const RouteSwitch = () => {
 
     }
   }
+
+  // change the product amount via select
+  function handleAmountChange(e, product){
+    let productPosition = checkForObjectInArray(product, cart)
+
+
+    // update cart product to the selected value
+    let editedCart = cart.slice()
+    editedCart[productPosition].amount = parseInt(e.target.value)
+    console.log(e.target.value)
+    setCart(editedCart)
+
+  }
   function checkForObjectInArray(object, array){
     for(let i=0; i<array.length; i++){
       if(array[i].name===object.name){
@@ -58,7 +71,7 @@ const RouteSwitch = () => {
     }
     return false
   }
-
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -72,7 +85,9 @@ const RouteSwitch = () => {
           {<ShoppingCart 
             cart={cart}
             handleRemovingItemFromCart={handleRemovingItemFromCart}
-          />} />
+            handleAmountChange={handleAmountChange}
+          />} 
+        />
       </Routes>
     </BrowserRouter>
   );
