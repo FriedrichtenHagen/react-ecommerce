@@ -6,7 +6,19 @@ import Category from "./pages/CategoryPage.js";
 import ProductPage from "./pages/ProductPage.js";
 import ShoppingCart from "./pages/ShoppingCart.js";
 
+/*
+to do:
 
+- add conditionally rendered "go add products to cart"-message in the shopping cart if there are zero products added
+- style shop for desktop view
+  - add hover effects
+- add some kind of search functionality
+- all links on home page should lead to the product page
+- add size choosing on product page (add key to objects)
+- add voucher component with drop down arrow
+- add a recommendation section
+
+*/
 
 
 const RouteSwitch = () => {

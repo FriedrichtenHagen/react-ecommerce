@@ -1,4 +1,4 @@
-import nalgeneLogo from "/home/friedrichtenhagen/ecommerce-site/src/images/nalgene-logo.png" 
+import nalgeneLogo from "/home/friedrichtenhagen/ecommerce-site/src/images/logo-nalgene120x30.webp" 
 import shoppingcart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/shopping-cart.png"
 import heart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/heart.png"
 import user from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/user.png"

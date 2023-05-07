@@ -24,7 +24,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
     })
     let subtotal=0;
     cart.forEach(product => {
-        subtotal = subtotal+product.amount*product.price
+        subtotal = Math.round((subtotal+product.amount*product.price) * 100) / 100
     })
     let delivery;
     if(subtotal<=90){
