@@ -62,7 +62,6 @@ const RouteSwitch = () => {
 
     }
   }
-
   // change the product amount via select
   function handleAmountChange(e, product){
     let productPosition = checkForObjectInArray(product, cart)

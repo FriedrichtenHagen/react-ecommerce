@@ -1,8 +1,8 @@
 import Header from "../components/Header.js"
 import Footer from '../components/Footer';
 import ShoppingCartCard from "../components/ShoppingCartCard"
-
-
+import emptyCart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/empty-cart.png"
+import {Link} from "react-router-dom";
 
 export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange}) {
 
@@ -37,9 +37,21 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
     return (
         <div className="shoppingCart">
             <Header cart={cart}/>
-            <div className="shoppingCartHeader">
-                Shopping Cart ({cart.length} products)
-            </div>
+
+            {(cart.length===0) ? 
+                <div className="emptyCart">
+                    <Link to="/category" className="emptyCartText">
+                        <img src={emptyCart} alt="empty shopping cart" id="empty-cart-icon" />
+                    Go. Go fill it up with all your hopes and dreams.</Link>         
+                </div>
+                : 
+                <div className="shoppingCartHeader">
+                    Shopping Cart ({cart.length} products)
+                </div>
+        
+        }
+
+
             <div className="shoppingCards">{cartList}</div>
             <div className="total">
                 <div className="shoppingCartHeader">
