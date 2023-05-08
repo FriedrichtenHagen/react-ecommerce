@@ -380,7 +380,9 @@ body{
   
 }
 
-
+.cartProductImage{
+  height: 90px;
+}
 .shoppingCards{
   margin: 30px 0px 30px 0px;
 }
@@ -391,14 +393,16 @@ body{
   height: 90px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.236);
 }
-.shoppingCartCard>img{
-  height: 100px;
-}
+
 .shoppingCartCardTitel{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-left: 30px;
+}
+.shoppingCartCardName{
+  text-decoration: none;
+  color: black;
 }
 .shoppingCartCardPrice{
   text-align: left;

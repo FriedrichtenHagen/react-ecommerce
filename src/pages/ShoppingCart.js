@@ -61,19 +61,19 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                     <div className="subTotal">
                         <div className="subTotalText">Subtotal</div>
                         <div className="subTotalNumber">
-                            {subtotal}
+                            {subtotal} €
                         </div>
                     </div>
                     <div className="delivery">
                         <div className="deliveryText">Delivery</div>
                         <div className="deliveryNumber">
-                            {delivery}
+                            {delivery} €
                         </div>
                     </div>
                     <div className="totalPrice">
                         <div className="totalText">Total (VAT included)</div>
                         <div className="totalNumber">
-                            {total}
+                            {total} €
                         </div>
                     </div>
                     <button className="checkout">GO TO CHECKOUT</button>

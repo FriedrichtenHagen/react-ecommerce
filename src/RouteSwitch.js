@@ -9,7 +9,6 @@ import ShoppingCart from "./pages/ShoppingCart.js";
 /*
 to do:
 
-- add conditionally rendered "go add products to cart"-message in the shopping cart if there are zero products added
 - style shop for desktop view
   - add hover effects
 - add some kind of search functionality
@@ -17,7 +16,6 @@ to do:
 - add size choosing on product page (add key to objects)
 - add voucher component with drop down arrow
 - add a recommendation section
-
 */
 
 
@@ -36,7 +34,7 @@ const RouteSwitch = () => {
     } else{
       // set amount to 0
       selectedProduct.amount = 1
-      // add item to cart
+      // add item to cart  
       setCart([...cart, selectedProduct])
     }
     
@@ -76,7 +74,7 @@ const RouteSwitch = () => {
   }
   function checkForObjectInArray(object, array){
     for(let i=0; i<array.length; i++){
-      if(array[i].name===object.name){
+      if(array[i].name===object.name&&array[i].size===object.size){
         return i
       }
     }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from "../components/Header";
+import Modal from '../components/Modal';
 import Footer from '../components/Footer';
 import { useParams } from "react-router-dom";
 import data from "../data/product-feed"
@@ -8,6 +9,7 @@ import arrowDown from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/a
 
 export default function ProductPage({cart, handleAddingItemToCart}){
     const [cartModalActive, setCartModalActive] = useState(false)
+    const [productSize, setProductSize] = useState(1)
 
 
     // receive the product name from the router
@@ -15,15 +17,18 @@ export default function ProductPage({cart, handleAddingItemToCart}){
     // find matching object in product feed
     let product = data.find(o => o.name===productName)
 
-
     
 
     // open the size menu
     function handleSizeClick(){
         setCartModalActive(prevState => !prevState)
     }
-
-
+    function handleSizeChoice(e){
+        console.log(e.target.dataset.size)    
+        setProductSize(parseFloat(e.target.dataset.size))
+        handleSizeClick()
+    }
+ 
 
 
     return(
@@ -48,12 +53,15 @@ export default function ProductPage({cart, handleAddingItemToCart}){
 
 
                 <div className="pickSize" onClick={handleSizeClick}>
-                    <div className="size">XL</div>
+                    <div className="size">{productSize} liter</div>
                     <img src={arrowDown} alt="arrow" id="arrowDown" />
                 </div>
 
 
-                <div className="addToCart" onClick={()=>{handleAddingItemToCart(product)}}>
+                <div className="addToCart" onClick={()=>{
+                    // set standard size from state
+                    product.size = productSize
+                    handleAddingItemToCart(product)}}>
                     Add to cart
                 </div>
 
@@ -61,17 +69,9 @@ export default function ProductPage({cart, handleAddingItemToCart}){
 
             </div>
             <Footer/>
-            <div className={"cartModal " + (cartModalActive ? "visible" : "hidden")}>
-                <ul className='sizeList' >
-                    <li>XS</li>
-                    <li>S</li>
-                    <li>M</li>
-                    <li>L</li>
-                    <li>XL</li>
-                </ul>
-            </div>
-            <div className={"cartModalBackground " + (cartModalActive ? "backgroundVisible" : "backgroundHidden")} onClick={handleSizeClick}>
-            </div>
+
+            <Modal cartModalActive={cartModalActive}handleSizeClick={handleSizeClick}
+            handleSizeChoice={handleSizeChoice}/>
         </div>
     )
 }    

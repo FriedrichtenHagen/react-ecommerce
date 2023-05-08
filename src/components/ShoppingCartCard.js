@@ -1,22 +1,31 @@
 import deleteIcon from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/delete.png"
-
+import {Link} from "react-router-dom";
 export default function ShoppingCartCard( {product, handleRemovingItemFromCart, handleAmountChange}) {
 
 // dont forget to set a maximum in the add to cart function (10)
 
     return (
         <div className="shoppingCartCard">
-            <img src={product.image} alt={product.name} />
+            <Link to={`/Productpage/${product.name}`}>
+
+                <img src={product.image} alt={product.name} className="cartProductImage"/>
+            </Link>
             <div className="shoppingCartCardTitel">
                 <div className="card-header">
-                    <div className="shoppingCartCardName">{product.name}</div>
-                    <img src={deleteIcon} className="deleteIcon" 
+                <Link to={`/Productpage/${product.name}`}
+className="shoppingCartCardName">{product.name} </Link>
+                        <img src={deleteIcon} className="deleteIcon" 
                         onClick={()=>{handleRemovingItemFromCart(product)}} 
                         alt={product.name}
                         data-product={product.name} />
+
+           
                 </div>
                 <div className="card-body">
                     <div className="shoppingCartCardPrice">{Math.round((product.price*product.amount) * 100) / 100 + ` EUR`}</div>
+                    <div className="shoppingCartSize">
+                    {product.size} liters
+                    </div>
                     <select className="shoppingCartCardAmount" onChange={(e) => handleAmountChange(e, product)}
                     defaultValue={product.amount}>
                         <option value="1">1</option>
