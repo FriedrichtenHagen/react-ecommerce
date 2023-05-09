@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 import { useParams } from "react-router-dom";
 import data from "../data/product-feed"
 import arrowDown from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/arrowDown.png"
+import cloneDeep from 'lodash/cloneDeep';
+
 
 
 export default function ProductPage({cart, handleAddingItemToCart}){
@@ -15,9 +17,7 @@ export default function ProductPage({cart, handleAddingItemToCart}){
     // receive the product name from the router
     const { productName } = useParams();
     // find matching object in product feed
-    let product = data.find(o => o.name===productName)
-
-    
+    let product = data.find(o => o.name===productName)    
 
     // open the size menu
     function handleSizeClick(){
@@ -60,8 +60,9 @@ export default function ProductPage({cart, handleAddingItemToCart}){
 
                 <div className="addToCart" onClick={()=>{
                     // set standard size from state
-                    product.size = productSize
-                    handleAddingItemToCart(product)}}>
+                    let newProduct = cloneDeep(product)
+                    newProduct.size = productSize
+                    handleAddingItemToCart(newProduct)}}>
                     Add to cart
                 </div>
 
