@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import ShoppingCartCard from "../components/ShoppingCartCard"
 import emptyCart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/empty-cart.png"
 import {Link} from "react-router-dom";
+import DropDown from "../components/DropDown.js";
 
 export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange}) {
 
@@ -79,6 +80,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                     <button className="checkout">GO TO CHECKOUT</button>
                 </div>
             </div>
+            <DropDown/>
             <Footer/>
         </div>
     );

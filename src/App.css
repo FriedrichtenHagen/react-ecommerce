@@ -446,3 +446,20 @@ button.checkout{
   letter-spacing: 0.5px;
   font-weight: bold;
 }
+
+.drop-down{
+  padding: 5px 16px;
+}
+
+.drop-down-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+#dropdownicon{
+  height: 20px;
+}
+.drop-down-expand{
+  max-height: 0px;
+  transition: max-height 0.25s ease-in;
+}
