@@ -360,7 +360,7 @@ body{
 }
 
 .emptyCart{
-  margin-top: 30px;
+  margin: 100px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -426,7 +426,7 @@ body{
 
 .total{
   padding: 5px 16px 5px 16px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .subTotal,.delivery,.totalPrice{
   display: flex;
@@ -447,19 +447,54 @@ button.checkout{
   font-weight: bold;
 }
 
+
+
+
+
 .drop-down{
-  padding: 5px 16px;
+  padding: 5px 16px 0px;
+  border-bottom: var(--thin-line);
+  margin-bottom: 30px;
 }
 
 .drop-down-top{
   display: flex;
   justify-content: space-between;
+  padding-bottom: 10px;
 }
 
 #dropdownicon{
   height: 20px;
+  transition: transform 0.5s ease-in-out;
 }
+
 .drop-down-expand{
-  max-height: 0px;
-  transition: max-height 0.25s ease-in;
+  opacity: 0;
+  height: 0px;
+  transition: all 0.26s ease-in-out;
+  transition-property: height, opacity;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.drop-down-expand-active{
+  height: 70px;
+  opacity: 1;
+  transition: all 0.26s ease-in-out;
+  transition-property: height, opacity;
+}
+.enterCodeText{
+  font-size: 0.8rem;
+  padding: 3px;
+}
+#codeInput{
+  box-shadow: inset 0 0 0 1px #ddd;
+  width: 100%;
+  height: 32px;
+  border: 0px;
+}
+.expandIconActive{
+  transform: rotate(180deg);
 }
