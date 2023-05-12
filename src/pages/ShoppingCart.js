@@ -4,16 +4,31 @@ import ShoppingCartCard from "../components/ShoppingCartCard"
 import emptyCart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/empty-cart.png"
 import {Link} from "react-router-dom";
 import DropDown from "../components/DropDown.js";
+import { calculateNewValue } from "@testing-library/user-event/dist/utils/index.js";
 
 export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange}) {
 
-    // remove duplicates from cart
-    // const cartWithoutDuplicates = [...new Set(cart)]
-    // add the number of multiple items
+    function handleDiscount(discountCode, undiscountedTotal){
+        const discounts = [
+            {code:"XMAS23", discount: 50, discountType: "percentage"},
+            {code:"NEWSLETTER", discount: 10, discountType: "absolute"}
+        ]
+        const discountValue = discounts.find(c => c.code === discountCode).discount
+        const discountType = discounts.find(c => c.code === discountCode).discountType
 
+        let discountedTotal;
+        if(discountType==="percentage"){
+            discountedTotal=undiscountedTotal/100*discountValue
+        } else if(discountType==="absolute"){
+            discountedTotal=undiscountedTotal-discountValue
+        }
+
+
+
+        return discountedTotal
+    }
 
     const cartList = cart.map(product => {
-
         return(
             <ShoppingCartCard   
                 product={product} 
@@ -23,17 +38,22 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
             />
         )
     })
-    let subtotal=0;
-    cart.forEach(product => {
-        subtotal = Math.round((subtotal+product.amount*product.price) * 100) / 100
-    })
-    let delivery;
-    if(subtotal<=90){
-        delivery=4.99
-    } else{
-        delivery=0
-    }
-    let total = Math.round((subtotal+delivery) * 100) / 100
+
+        // calculate prices
+        let discount = handleDiscount("XMAS23")
+        let subtotal=0;
+        cart.forEach(product => {
+            subtotal = Math.round((subtotal+product.amount*product.price) * 100) / 100
+        })
+        let delivery;
+        if(subtotal<=90){
+            delivery=4.99
+        } else{
+            delivery=0
+        }
+        let total = Math.round((subtotal+delivery) * 100) / 100
+
+ 
 
     return (
         <div className="shoppingCart">
@@ -54,6 +74,8 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
 
 
             <div className="shoppingCards">{cartList}</div>
+
+            <DropDown/>
             <div className="total">
                 <div className="shoppingCartHeader">
                     Total
@@ -80,7 +102,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                     <button className="checkout">GO TO CHECKOUT</button>
                 </div>
             </div>
-            <DropDown/>
+
             <Footer/>
         </div>
     );

@@ -13,9 +13,8 @@ to do:
   - add hover effects
 - add some kind of search functionality
 - all links on home page should lead to the product page
-- add size choosing on product page (add key to objects)
 - make shopping cart page 100vh
-- add voucher component with drop down arrow
+- add functionality to voucher component 
 - add a recommendation section
 
 */

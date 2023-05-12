@@ -454,7 +454,8 @@ button.checkout{
 .drop-down{
   padding: 5px 16px 0px;
   border-bottom: var(--thin-line);
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: 50px
 }
 
 .drop-down-top{
