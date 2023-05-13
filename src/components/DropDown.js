@@ -1,7 +1,7 @@
 import { useState } from "react"
 import dropdown from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/arrowDown.png" 
 
-export default function DropDown(){
+export default function DropDown({calculatePrices}){
     const [expand, setExpand] = useState(false)
  
 
@@ -9,7 +9,7 @@ export default function DropDown(){
         setExpand(!expand)
     }
     let expandClassName = `drop-down-expand `+ (expand ? null : `drop-down-expand-active`)
-    let expandIconActive = expand ? `expandIconActive` : null
+    let expandIconActive = expand ? `expandIconActive` : null,jgy
 
     return(
         <div className="drop-down">
@@ -19,7 +19,7 @@ export default function DropDown(){
             </div>
             <div className={expandClassName}>
                 <div className="enterCodeText">Enter or paste a discount code here</div>
-                <input type="text" id="codeInput" />
+                <input type="text" id="codeInput" onChange={e =>{calculatePrices(e.target.value)}} />
             </div>
         </div>
     )
