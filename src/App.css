@@ -496,6 +496,12 @@ button.checkout{
   height: 32px;
   border: 0px;
 }
+#codeInput.valid{
+  background-color: green;
+}
+#codeInput.invalid{
+  background-color: rgb(209, 31, 31);
+}
 .expandIconActive{
   transform: rotate(180deg);
 }

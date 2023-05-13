@@ -4,17 +4,39 @@ import ShoppingCartCard from "../components/ShoppingCartCard"
 import emptyCart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/empty-cart.png"
 import {Link} from "react-router-dom";
 import DropDown from "../components/DropDown.js";
-import { calculateNewValue } from "@testing-library/user-event/dist/utils/index.js";
+import { useState } from 'react';
 
 export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange}) {
+    const [discountCode, setDiscountCode] = useState(0)
+    const [discountCodeValid, setDiscountCodeValid] = useState(false)
+
     const discounts = [
         {code:"XMAS23", discount: 50, discountType: "percentage"},
         {code:"NEWSLETTER", discount: 10, discountType: "absolute"}
     ]
 
+    function handleDiscountInput(enteredDiscountCode){
+        if(enteredDiscountCode.length<2){
+            alert("Try XMAS23 for 50% off")
+        }
 
+        setDiscountCode(enteredDiscountCode)
+        highlightCorrectDiscountCode()
+    }
 
-    function calculatePrices(enteredDiscountCode){        
+    function highlightCorrectDiscountCode(){
+        if(!discounts.find(c => c.code === discountCode)){
+            // code does not exist
+            setDiscountCodeValid(false)
+            
+
+        } else{
+            setDiscountCodeValid(true)
+        }
+    }
+    function calculatePrices(){ 
+        let enteredDiscountCode = discountCode
+
         // calculate subtotal 
         let subtotal=0;
         cart.forEach(product => {
@@ -37,6 +59,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
             discountedTotal = undiscountedTotal
 
         } else{
+            // a valid code was entered
             const discountValue = discounts.find(c => c.code === enteredDiscountCode).discount
             const discountType = discounts.find(c => c.code === enteredDiscountCode).discountType
             
@@ -62,7 +85,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
             total: total,
         }
     }
-    let prices = calculatePrices("XMASfalse23")
+    let prices = calculatePrices()
 
     const cartList = cart.map(product => {
         return(
@@ -92,7 +115,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                 </div>
             }
             <div className="shoppingCards">{cartList}</div>
-            <DropDown calculatePrices={calculatePrices}/>
+            <DropDown handleDiscountInput={handleDiscountInput} discountCodeValid={discountCodeValid}/>
             <div className="total">
                 <div className="shoppingCartHeader">
                     Total
