@@ -8,8 +8,14 @@ export default function DropDown({handleDiscountInput, discountCodeValid}){
     function handleDropDown(){
         setExpand(!expand)
     }
-    let expandClassName = `drop-down-expand `+ (expand ? null : `drop-down-expand-active`)
+    let expandClassName = `drop-down-expand `+ (expand ? `drop-down-expand-active` : null)
     let expandIconActive = expand ? `expandIconActive` : null
+
+
+    function handleRedeemClick(e){
+        console.log(e)
+        e.preventDefault()
+    }
 
     return(
         <div className="drop-down">
@@ -19,7 +25,10 @@ export default function DropDown({handleDiscountInput, discountCodeValid}){
             </div>
             <div className={expandClassName}>
                 <div className="enterCodeText">Enter or paste a discount code here</div>
-                <input type="text" id="codeInput" className={discountCodeValid ? "valid" : "invalid"} onChange={e =>{handleDiscountInput(e.target.value)}} />
+                <form action="/submit">
+                    <input type="text" id="codeInput" className={discountCodeValid ? "valid" : "invalid"} onChange={e =>{handleDiscountInput(e.target.value)}} />
+                    <button type="" id="discountSubmit" className={discountCodeValid ? "valid" : "invalid"} onClick={handleRedeemClick}>Redeem</button>
+                </form>
             </div>
         </div>
     )

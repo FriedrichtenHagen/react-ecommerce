@@ -478,10 +478,11 @@ button.checkout{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 5px;
 
 }
 .drop-down-expand-active{
-  height: 70px;
+  height: 105px;
   opacity: 1;
   transition: all 0.26s ease-in-out;
   transition-property: height, opacity;
@@ -504,4 +505,11 @@ button.checkout{
 }
 .expandIconActive{
   transform: rotate(180deg);
+}
+#discountSubmit{
+  box-shadow: inset 0 0 0 1px #ddd;
+  width: 100%;
+  height: 32px;
+  border: 0px;
+  margin-top: 5px;
 }
