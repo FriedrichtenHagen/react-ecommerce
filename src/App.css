@@ -450,6 +450,20 @@ button.checkout{
 
 
 
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}
 
 .drop-down{
   padding: 5px 16px 0px;
@@ -496,12 +510,15 @@ button.checkout{
   width: 100%;
   height: 32px;
   border: 0px;
+  text-align: center;
+  outline: none;
 }
 #codeInput.valid{
-  background-color: green;
+  background-color: #4CAF50;
 }
 #codeInput.invalid{
-  background-color: rgb(209, 31, 31);
+  background-color: #dc847d;
+  animation: shake 0.2s ease-in-out 0s 2;
 }
 .expandIconActive{
   transform: rotate(180deg);

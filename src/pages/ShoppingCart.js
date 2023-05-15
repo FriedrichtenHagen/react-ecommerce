@@ -7,35 +7,17 @@ import DropDown from "../components/DropDown.js";
 import { useState } from 'react';
 
 export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange}) {
-    const [discountCode, setDiscountCode] = useState(0)
-    const [discountCodeValid, setDiscountCodeValid] = useState(false)
+    const [activeDiscountCode, setActiveDiscountCode] = useState({value: 0, type: null})
 
-    const discounts = [
-        {code:"XMAS23", discount: 50, discountType: "percentage"},
-        {code:"NEWSLETTER", discount: 10, discountType: "absolute"}
-    ]
 
-    function handleDiscountInput(enteredDiscountCode){
-        if(enteredDiscountCode.length<2){
-            alert("Try XMAS23 for 50% off")
-        }
-
-        setDiscountCode(enteredDiscountCode)
-        highlightCorrectDiscountCode()
+    function updateActiveDiscountCode(code){
+        setActiveDiscountCode(code)
     }
 
-    function highlightCorrectDiscountCode(){
-        if(!discounts.find(c => c.code === discountCode)){
-            // code does not exist
-            setDiscountCodeValid(false)
-            
 
-        } else{
-            setDiscountCodeValid(true)
-        }
-    }
     function calculatePrices(){ 
-        let enteredDiscountCode = discountCode
+        let discountValue = activeDiscountCode.value
+        let discountType = activeDiscountCode.type
 
         // calculate subtotal 
         let subtotal=0;
@@ -54,15 +36,11 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
         let undiscountedTotal = subtotal+delivery
         let discountedTotal;
         // calculate discount
-        if(!discounts.find(c => c.code === enteredDiscountCode)){
-            // code does not exist
+        if(!activeDiscountCode.value){
+            // legit code does not exist
             discountedTotal = undiscountedTotal
-
         } else{
             // a valid code was entered
-            const discountValue = discounts.find(c => c.code === enteredDiscountCode).discount
-            const discountType = discounts.find(c => c.code === enteredDiscountCode).discountType
-            
             if(discountType==="percentage"){
                 discountedTotal=undiscountedTotal/100*discountValue
     
@@ -115,7 +93,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                 </div>
             }
             <div className="shoppingCards">{cartList}</div>
-            <DropDown handleDiscountInput={handleDiscountInput} discountCodeValid={discountCodeValid}/>
+            <DropDown updateActiveDiscountCode={updateActiveDiscountCode}/>
             <div className="total">
                 <div className="shoppingCartHeader">
                     Total
