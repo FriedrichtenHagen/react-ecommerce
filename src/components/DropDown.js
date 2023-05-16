@@ -4,7 +4,7 @@ import dropdown from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/ar
 export default function DropDown({updateActiveDiscountCode}){
     const [expand, setExpand] = useState(false)
     const [inputDiscount, setInputDiscount] = useState("")
-    const [discountCodeValid, setDiscountCodeValid] = useState(false)
+    const [discountCodeValid, setDiscountCodeValid] = useState("standing by")
     const discounts = [
         {code:"XMAS23", discount: 50, discountType: "percentage"},
         {code:"NEWSLETTER", discount: 10, discountType: "absolute"}
@@ -26,19 +26,29 @@ export default function DropDown({updateActiveDiscountCode}){
             const discountType = correctDiscount.discountType
 
             updateActiveDiscountCode({value: discountValue, type: discountType})
-            setDiscountCodeValid(true)
+            setDiscountCodeValid("valid")
         } else{
             //alert("The code you entered is not correct.")
-            setDiscountCodeValid(false)
+            setDiscountCodeValid("invalid")
         }
     }
 
+    // style input according to validity of code
+    let styleOfInput;
+    if(discountCodeValid=== "standing by"){
+        styleOfInput=""
+    } else if(discountCodeValid=== "valid"){
+        styleOfInput ="valid"
+    } else if(discountCodeValid=== "invalid"){
+        styleOfInput = "invalid"
+    }
 
     function handleDiscountInput(enteredText){
         // if(inputDiscount.length===2){
         //     alert("Try XMAS23 for 50% off")
         // }
         setInputDiscount(enteredText)
+        setDiscountCodeValid("standing by")
     }
 
     return(
@@ -50,10 +60,10 @@ export default function DropDown({updateActiveDiscountCode}){
             <div className={expandClassName}>
                 <div className="enterCodeText">Enter or paste a discount code here</div>
                 <form action="/submit">
-                    <input type="text" id="codeInput" className={discountCodeValid ? "valid" : "invalid"} onChange={e =>{
+                    <input type="text" id="codeInput" className={styleOfInput} onChange={e =>{
                         handleDiscountInput(e.target.value)
                     }} />
-                    <button type="" id="discountSubmit" className={discountCodeValid ? "valid" : "invalid"} onClick={handleRedeemClick}>Redeem</button>
+                    <button type="" id="discountSubmit" onClick={handleRedeemClick}>Redeem</button>
                 </form>
             </div>
         </div>

@@ -513,9 +513,11 @@ button.checkout{
   border: 0px;
   text-align: center;
   outline: none;
+  transition: 1s all ease-in-out;
 }
 #codeInput.valid{
   background-color: #4CAF50;
+  transform: scale(1.1);
 }
 #codeInput.invalid{
   background-color: #dc847d;
