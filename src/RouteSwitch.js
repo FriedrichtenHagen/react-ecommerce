@@ -14,8 +14,8 @@ to do:
 - add some kind of search functionality
 - all links on home page should lead to the product page
 - make shopping cart page 100vh
-- add functionality to voucher component 
 - add a recommendation section
+- useContext for cart
 
 */
 
