@@ -2,6 +2,7 @@ import Header from "../components/Header.js"
 import Footer from '../components/Footer';
 import ShoppingCartCard from "../components/ShoppingCartCard"
 import emptyCart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/empty-cart.png"
+import Recommendations from "../components/Recommendations.js"
 import {Link} from "react-router-dom";
 import DropDown from "../components/DropDown.js";
 import { useState } from 'react';
@@ -89,7 +90,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                 </div>
                 : 
                 <div className="shoppingCartHeader">
-                    Shopping Cart ({cart.length} products)
+                    Shopping Cart <div className="shoppingCartAmount">({cart.length} products)</div>
                 </div>
             }
             <div className="shoppingCards">{cartList}</div>
@@ -126,7 +127,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                     <button className="checkout">GO TO CHECKOUT</button>
                 </div>
             </div>
-
+            <Recommendations/>
             <Footer/>
         </div>
     );

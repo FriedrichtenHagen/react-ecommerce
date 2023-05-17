@@ -358,6 +358,10 @@ body{
   margin-top: 30px;
   font-size: 1.8rem;
 }
+.shoppingCartAmount{
+  font-size: medium;
+  margin-left: 5px;
+}
 
 .emptyCart{
   margin: 100px 0px;
@@ -532,4 +536,12 @@ button.checkout{
   height: 32px;
   border: 0px;
   margin-top: 5px;
+}
+
+
+
+
+.recommendations{
+  padding: 5px 16px 5px 16px;
+  margin-bottom: 30px;
 }
