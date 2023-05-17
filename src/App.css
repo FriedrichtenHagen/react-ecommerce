@@ -212,7 +212,7 @@ body{
   background-color: black;
   color: white;
   padding: 25px 10px 10px 10px;
-
+  height: 160px;
 }
 .footerTitles{
   font-size: 0.8rem;
@@ -544,4 +544,15 @@ button.checkout{
 .recommendations{
   padding: 5px 16px 5px 16px;
   margin-bottom: 30px;
+}
+.headerLine1{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.recommendationSlider{
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  display: flex;
+  overflow-x: scroll;
 }

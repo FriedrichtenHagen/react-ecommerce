@@ -15,7 +15,6 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
         setActiveDiscountCode(code)
     }
 
-
     function calculatePrices(){ 
         let discountValue = activeDiscountCode.value
         let discountType = activeDiscountCode.type
@@ -94,7 +93,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                 </div>
             }
             <div className="shoppingCards">{cartList}</div>
-            <DropDown updateActiveDiscountCode={updateActiveDiscountCode}/>
+            
             <div className="total">
                 <div className="shoppingCartHeader">
                     Total
@@ -127,7 +126,8 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                     <button className="checkout">GO TO CHECKOUT</button>
                 </div>
             </div>
-            <Recommendations/>
+            <DropDown updateActiveDiscountCode={updateActiveDiscountCode}/>
+            <Recommendations cart={cart}/>
             <Footer/>
         </div>
     );

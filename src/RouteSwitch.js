@@ -14,9 +14,8 @@ to do:
 - add some kind of search functionality
 - all links on home page should lead to the product page
 - make shopping cart page 100vh
-- add a recommendation section
 - useContext for cart
-
+- look into animation library to animate changes in the prices
 */
 
 
