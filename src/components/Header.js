@@ -7,10 +7,12 @@ import hamburger from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/h
 import search from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/search.png"
 import {Link } from "react-router-dom";
 import { useState } from "react"
+import data from "../data/product-feed.js"
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({ cart }){
-const [searchState, setSearchState] = useState("")
-
+const [searchTerm, setSearchState] = useState("")
+const navigate = useNavigate()
 
     // display the number of items in the cart
     let cartItemNum = 0
@@ -22,8 +24,14 @@ const [searchState, setSearchState] = useState("")
 
         setSearchState(e.target.value)
     }
-    function handleSearchStart(){
-alert(`Search is currently not supported. Search term: ${searchState}`)
+    function handleSearchStart(e){
+        // prevent form submit
+        e.preventDefault()
+        // go through product feed and check the product names for the search term
+        const searchMatches = data.filter(product => product.name.includes(searchTerm))
+        console.log(searchMatches)
+        // search result page
+        navigate('/category', {state:{searchMatches:searchMatches, searchTerm: searchTerm}})
     }
  
     return(
@@ -44,10 +52,12 @@ alert(`Search is currently not supported. Search term: ${searchState}`)
             </div>
             <div className="lowerHeader">
                 <img src={hamburger} id="hamburger" className="headerIcon" alt="menu" />
-                <div className="searchBar">
-                    <input type="text" onChange={handleSearchInput} placeholder="Search..." id="searchInput" value={searchState} />
-                    <img src={search} className="headerIcon" onClick={handleSearchStart} alt="search" />
-                </div>
+
+
+                <form className="searchBar" onSubmit={handleSearchStart}>
+                    <input type="text" onChange={handleSearchInput} placeholder="Search..." id="searchInput" value={searchTerm} />
+                    <button type="submit" id="searchButton"><img src={search} className="headerIcon"  alt="search" /></button>
+                </form>
             </div>
         </div>
     )
