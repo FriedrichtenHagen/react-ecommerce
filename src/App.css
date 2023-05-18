@@ -438,6 +438,15 @@ body{
   justify-content: space-between;
   padding: 4px 0px;
 }
+.deliveryText{
+  display: flex;
+  align-items: center;
+
+}
+.deliveryTextFree{
+  font-size: 0.7rem;
+  margin-left: 5px;
+}
 .totalPrice{
   border-top: var(--thin-line);
   font-weight: bold;

@@ -106,7 +106,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                         </div>
                     </div>
                     <div className="delivery">
-                        <div className="deliveryText">Delivery</div>
+                        <div className="deliveryText">Delivery <div className="deliveryTextFree"> (free over 100€)</div></div>
                         <div className="deliveryNumber">
                             {prices.delivery} €
                         </div>
