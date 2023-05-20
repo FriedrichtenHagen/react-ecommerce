@@ -27,11 +27,9 @@ const navigate = useNavigate()
     function handleSearchStart(e){
         // prevent form submit
         e.preventDefault()
-        // go through product feed and check the product names for the search term
-        const searchMatches = data.filter(product => product.name.includes(searchTerm))
-        console.log(searchMatches)
+        
         // search result page
-        navigate('/category', {state:{searchMatches:searchMatches, searchTerm: searchTerm}})
+        navigate({pathname: '/category', search: searchTerm})
     }
  
     return(
