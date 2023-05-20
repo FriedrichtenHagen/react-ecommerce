@@ -5,12 +5,12 @@ import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
 import Footer from '../components/Footer';
 import close from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/close.png"
-import cloneDeep from 'lodash/cloneDeep';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function CategoryPage( {cart}){
     const [productFeed, setProductFeed] = useState(data)
-
+    const navigate = useNavigate()
     const location = useLocation();
     let searchMatches=null;
     let searchTerm=null;
@@ -22,7 +22,6 @@ export default function CategoryPage( {cart}){
    
 
     function handleSearch(){
-
         searchTerm = location.search
         // remove the ? from the searchterm
         searchTerm = searchTerm.substring(1)
@@ -34,9 +33,7 @@ export default function CategoryPage( {cart}){
 
 
     function handleSearchClose(){
-        // searchResults = null
-        // setSearchResultFilter(false)
-        // setProductFeed(data)
+        navigate({pathname: '/category'})
     }
  
     return(
@@ -56,7 +53,8 @@ export default function CategoryPage( {cart}){
                         <li>Sale</li>
                     </ul>
                 </div>
-                <ProductFeed  productFeed={searchMatches ? searchMatches : productFeed}/>
+                <ProductFeed  productFeed={searchMatches ? searchMatches : productFeed}
+                                cart={cart}/>
             <Footer/>
         </div>
     )
