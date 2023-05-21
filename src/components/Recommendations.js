@@ -24,7 +24,7 @@ export default function Recommendations({cart}){
 
     const listOfRecommendations = filteredNewProducts.map(product => {
         return(
-            <li><ProductCard product={product} key={crypto.randomUUID()}/></li>
+            <li key={crypto.randomUUID()}><ProductCard product={product} /></li>
         )
 
     })

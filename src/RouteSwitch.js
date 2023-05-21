@@ -11,7 +11,6 @@ to do:
 
 - style shop for desktop view
   - add hover effects
-- add some kind of search functionality
 - all links on home page should lead to the product page
 - useContext for cart
 - look into animation library to animate changes in the prices
@@ -20,7 +19,13 @@ to do:
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
+  const [menuActive, setMenuActive] = useState(false)
 
+
+  function handleMenuStart(){
+    console.log("Menu")
+    setMenuActive(!menuActive)
+  }
   function handleAddingItemToCart(selectedProduct){
     // check for duplicate
     const duplicatePosition = checkForObjectInArray(selectedProduct, cart)
@@ -83,17 +88,26 @@ const RouteSwitch = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage cart={cart}/>} />
-        <Route path="/category" element={<Category cart={cart}/>} />
+          <Route path="/" element={<Homepage 
+            cart={cart}
+            handleMenuStart={handleMenuStart}
+            menuActive={menuActive}
+          />} />
+        <Route path="/category" element={<Category 
+          cart={cart}
+          handleMenuStart={handleMenuStart}
+        />} />
         <Route path="/productpage/:productName" element={<ProductPage 
           cart={cart} 
-          handleAddingItemToCart={handleAddingItemToCart} 
+          handleAddingItemToCart={handleAddingItemToCart}
+          handleMenuStart={handleMenuStart} 
         />}/>
         <Route path="/shoppingcart" element=
           {<ShoppingCart 
             cart={cart}
             handleRemovingItemFromCart={handleRemovingItemFromCart}
             handleAmountChange={handleAmountChange}
+            handleMenuStart={handleMenuStart}
           />} 
         />
       </Routes>

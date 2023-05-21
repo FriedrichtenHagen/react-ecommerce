@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import DropDown from "../components/DropDown.js";
 import { useState } from 'react';
 
-export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange}) {
+export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange, handleMenuStart}) {
     const [activeDiscountCode, setActiveDiscountCode] = useState({value: 0, type: null})
 
 
@@ -79,7 +79,10 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
 
     return (
         <div className="shoppingCart">
-            <Header cart={cart}/>
+            <Header 
+                cart={cart}
+                handleMenuStart={handleMenuStart}
+            />
 
             {(cart.length===0) ? 
                 <div className="emptyCart">

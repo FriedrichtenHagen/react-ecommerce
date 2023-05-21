@@ -8,7 +8,7 @@ import close from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/close
 import { useNavigate } from 'react-router-dom';
 
 
-export default function CategoryPage( {cart}){
+export default function CategoryPage( {cart, handleMenuStart}){
     const [productFeed, setProductFeed] = useState(data)
     const navigate = useNavigate()
     const location = useLocation();
@@ -38,7 +38,7 @@ export default function CategoryPage( {cart}){
  
     return(
         <div className="categoryPage">
-            <Header cart={cart}/>
+            <Header cart={cart} handleMenuStart={handleMenuStart}/>
                 <div className="categoryHeader">
                     {searchTerm ? <div className="searchTerm">
                         {searchTerm} <img src={close} id="searchTermClose" alt="" onClick={handleSearchClose} /></div> : null}

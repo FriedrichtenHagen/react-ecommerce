@@ -9,7 +9,7 @@ import cloneDeep from 'lodash/cloneDeep';
 
 
 
-export default function ProductPage({cart, handleAddingItemToCart}){
+export default function ProductPage({cart, handleAddingItemToCart, handleMenuStart}){
     const [cartModalActive, setCartModalActive] = useState(false)
     const [productSize, setProductSize] = useState(1)
 
@@ -33,7 +33,10 @@ export default function ProductPage({cart, handleAddingItemToCart}){
 
     return(
         <div className="productPage">
-            <Header cart={cart}/>
+            <Header 
+                cart={cart}
+                handleMenuStart={handleMenuStart}
+            />
             <div className="productBody">
                 <img src={product.image} className="productPageImage" alt={product.name} />
                 <div className="productInfo">

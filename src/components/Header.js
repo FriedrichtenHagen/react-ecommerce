@@ -10,9 +10,10 @@ import { useState } from "react"
 import data from "../data/product-feed.js"
 import { useNavigate } from 'react-router-dom';
 
-export default function Header({ cart }){
+export default function Header({ cart, handleMenuStart}){
 const [searchTerm, setSearchState] = useState("")
 const navigate = useNavigate()
+
 
     // display the number of items in the cart
     let cartItemNum = 0
@@ -31,7 +32,8 @@ const navigate = useNavigate()
         // search result page
         navigate({pathname: '/category', search: searchTerm})
     }
- 
+
+
     return(
         <div className="header">
             <div className="upperHeader">
@@ -49,7 +51,7 @@ const navigate = useNavigate()
                 </div>
             </div>
             <div className="lowerHeader">
-                <img src={hamburger} id="hamburger" className="headerIcon" alt="menu" />
+                <img src={hamburger} id="hamburger" className="headerIcon" alt="menu" onClick={handleMenuStart} />
 
 
                 <form className="searchBar" onSubmit={handleSearchStart}>

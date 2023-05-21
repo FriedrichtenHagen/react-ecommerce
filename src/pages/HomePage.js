@@ -3,20 +3,25 @@ import '../App.css';
 import Header from "../components/Header.js"
 import Body from "../components/Body.js"
 import Footer from '../components/Footer';
+import Menu from '../components/Menu';
 
 
 
-function Homepage( {cart}) {
+function Homepage( {cart, handleMenuStart, menuActive}) {
   return (
     <div className="App">
-      <Header cart={cart}/>
+      <Header 
+        cart={cart}
+        handleMenuStart={handleMenuStart}
+      />
       <Body/>
       <Footer/>
+      <Menu 
+        handleMenuStart={handleMenuStart}
+        menuActive={menuActive}  
+      />
     </div>
   );
 }
 
 export default Homepage;
-
-
-// add a slide-in shopping cart
