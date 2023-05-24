@@ -19,13 +19,7 @@ to do:
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
-  const [menuActive, setMenuActive] = useState(false)
 
-
-  function handleMenuStart(){
-    console.log("Menu")
-    setMenuActive(!menuActive)
-  }
   function handleAddingItemToCart(selectedProduct){
     // check for duplicate
     const duplicatePosition = checkForObjectInArray(selectedProduct, cart)
@@ -90,24 +84,19 @@ const RouteSwitch = () => {
       <Routes>
           <Route path="/" element={<Homepage 
             cart={cart}
-            handleMenuStart={handleMenuStart}
-            menuActive={menuActive}
           />} />
         <Route path="/category" element={<Category 
           cart={cart}
-          handleMenuStart={handleMenuStart}
         />} />
         <Route path="/productpage/:productName" element={<ProductPage 
           cart={cart} 
           handleAddingItemToCart={handleAddingItemToCart}
-          handleMenuStart={handleMenuStart} 
         />}/>
         <Route path="/shoppingcart" element=
           {<ShoppingCart 
             cart={cart}
             handleRemovingItemFromCart={handleRemovingItemFromCart}
             handleAmountChange={handleAmountChange}
-            handleMenuStart={handleMenuStart}
           />} 
         />
       </Routes>

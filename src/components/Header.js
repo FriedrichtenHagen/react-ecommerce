@@ -9,10 +9,14 @@ import {Link } from "react-router-dom";
 import { useState } from "react"
 import data from "../data/product-feed.js"
 import { useNavigate } from 'react-router-dom';
+import { useToggle } from "../hooks/useToggle"
 
-export default function Header({ cart, handleMenuStart}){
-const [searchTerm, setSearchState] = useState("")
-const navigate = useNavigate()
+
+export default function Header({ cart}){
+    const [searchTerm, setSearchState] = useState("")
+    const {status, toggleStatus} = useToggle()
+
+    const navigate = useNavigate()
 
 
     // display the number of items in the cart
@@ -51,7 +55,7 @@ const navigate = useNavigate()
                 </div>
             </div>
             <div className="lowerHeader">
-                <img src={hamburger} id="hamburger" className="headerIcon" alt="menu" onClick={handleMenuStart} />
+                <img src={hamburger} id="hamburger" className="headerIcon" alt="menu" onClick={toggleStatus} />
 
 
                 <form className="searchBar" onSubmit={handleSearchStart}>
