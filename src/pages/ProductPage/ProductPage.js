@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import Header from "../components/Header";
-import Modal from '../components/Modal';
-import Footer from '../components/Footer';
+import Header from "../../components/Header";
+import Modal from './Modal';
+import Footer from '../../components/Footer';
 import { useParams } from "react-router-dom";
-import data from "../data/product-feed"
+import data from "../../data/product-feed"
 import arrowDown from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/arrowDown.png"
 import cloneDeep from 'lodash/cloneDeep';
-import Menu from '../components/Menu';
+import Menu from '../../components/Menu';
 
 
-export default function ProductPage({cart, handleAddingItemToCart, handleMenuStart}){
+export default function ProductPage({cart, handleAddingItemToCart}){
     const [cartModalActive, setCartModalActive] = useState(false)
     const [productSize, setProductSize] = useState(1)
 
@@ -35,7 +35,6 @@ export default function ProductPage({cart, handleAddingItemToCart, handleMenuSta
         <div className="productPage">
             <Header 
                 cart={cart}
-                handleMenuStart={handleMenuStart}
             />
             <div className="productBody">
                 <img src={product.image} className="productPageImage" alt={product.name} />

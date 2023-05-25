@@ -1,6 +1,6 @@
 import { useToggle } from "../hooks/useToggle"
 import close from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/close.png"
-import { MenuContext } from "../hooks/MenuContext"
+import { MenuContext } from "../context/MenuContext"
 import { useContext } from "react"
 
 

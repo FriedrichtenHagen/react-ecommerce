@@ -1,14 +1,14 @@
-import Header from "../components/Header.js"
-import Footer from '../components/Footer';
-import ShoppingCartCard from "../components/ShoppingCartCard"
+import Header from "../../components/Header.js"
+import Footer from '../../components/Footer';
+import ShoppingCartCard from "./ShoppingCartCard"
 import emptyCart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/empty-cart.png"
-import Recommendations from "../components/Recommendations.js"
+import Recommendations from "../../components/Recommendations.js"
 import {Link} from "react-router-dom";
-import DropDown from "../components/DropDown.js";
+import DropDown from "./DropDown.js";
 import { useState } from 'react';
-import Menu from '../components/Menu';
+import Menu from '../../components/Menu';
 
-export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange, handleMenuStart}) {
+export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleAmountChange}) {
     const [activeDiscountCode, setActiveDiscountCode] = useState({value: 0, type: null})
 
 
@@ -82,7 +82,6 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
         <div className="shoppingCart">
             <Header 
                 cart={cart}
-                handleMenuStart={handleMenuStart}
             />
 
             {(cart.length===0) ? 

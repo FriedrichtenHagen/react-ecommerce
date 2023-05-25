@@ -8,10 +8,10 @@ import search from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/sear
 import {Link } from "react-router-dom";
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
-import { MenuContext } from "../hooks/MenuContext"
+import { MenuContext } from "../context/MenuContext"
 import { useContext } from "react"
 
-export default function Header({ cart}){
+export default function Header({ cart }){
     const [searchTerm, setSearchState] = useState("")
     const { status, toggleStatus } = useContext(MenuContext)
 

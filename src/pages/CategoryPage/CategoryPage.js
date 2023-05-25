@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import {useLocation} from 'react-router-dom';
-import data from "../data/product-feed.js"
-import Header from "../components/Header";
-import ProductFeed from "../components/ProductFeed";
-import Footer from '../components/Footer';
+import data from "../../data/product-feed.js"
+import Header from "../../components/Header";
+import ProductFeed from "./ProductFeed";
+import Footer from '../../components/Footer';
 import close from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/close.png"
 import { useNavigate } from 'react-router-dom';
-import Menu from '../components/Menu';
+import Menu from '../../components/Menu';
 
-export default function CategoryPage( {cart, handleMenuStart}){
+export default function CategoryPage( {cart}){
     const [productFeed, setProductFeed] = useState(data)
     const navigate = useNavigate()
     const location = useLocation();
@@ -38,7 +38,7 @@ export default function CategoryPage( {cart, handleMenuStart}){
  
     return(
         <div className="categoryPage">
-            <Header cart={cart} handleMenuStart={handleMenuStart}/>
+            <Header cart={cart}/>
                 <div className="categoryHeader">
                     {searchTerm ? <div className="searchTerm">
                         {searchTerm} <img src={close} id="searchTermClose" alt="" onClick={handleSearchClose} /></div> : null}

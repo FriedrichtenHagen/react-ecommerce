@@ -1,5 +1,5 @@
-import ProductCard from "./ProductCard"
-import Recommendations from "./Recommendations"
+import ProductCard from "../../components/ProductCard"
+import Recommendations from "../../components/Recommendations"
 
 
 

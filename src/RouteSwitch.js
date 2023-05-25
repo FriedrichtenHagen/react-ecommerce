@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
-import Homepage from "./pages/HomePage.js";
-import Category from "./pages/CategoryPage.js";
-import ProductPage from "./pages/ProductPage.js";
-import ShoppingCart from "./pages/ShoppingCart.js";
-import { MenuContext } from "./hooks/MenuContext.js"
+import Homepage from "./pages/Homepage/HomePage.js";
+import Category from "./pages/CategoryPage/CategoryPage.js";
+import ProductPage from "./pages/ProductPage/ProductPage.js";
+import ShoppingCart from "./pages/ShoppingCartPage/ShoppingCartPage.js";
+import { MenuContext } from "./context/MenuContext.js"
 import { useToggle } from "./hooks/useToggle"
 /*
 to do:
@@ -15,6 +15,8 @@ to do:
 - all links on home page should lead to the product page
 - useContext for cart
 - look into animation library to animate changes in the prices
+- fix the text alignment for delivery in shopping cart
+- use Context API for cart?
 */
 
 
