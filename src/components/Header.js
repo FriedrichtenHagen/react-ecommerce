@@ -43,7 +43,9 @@ export default function Header({ cart }){
                     <img src={nalgeneLogo} alt="nalgene logo" id="nalgeneLogo"/>
                 </Link>
                 <div className="headerIcons">
-                    <img src={heart} className="headerIcon" alt="heart" />
+                    <Link to="/loginpage" className="ctaLink">
+                        <img src={heart} className="headerIcon" alt="heart" />
+                    </Link>
                     <img src={user} className="headerIcon" alt="user" />
                     <img src={lang} className="headerIcon" alt="language select" />
                     <Link to="/shoppingcart" className="ctaLink">
