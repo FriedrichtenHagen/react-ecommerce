@@ -7,14 +7,13 @@ import hamburger from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/h
 import search from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/search.png"
 import {Link } from "react-router-dom";
 import { useState } from "react"
-import data from "../data/product-feed.js"
 import { useNavigate } from 'react-router-dom';
-import { useToggle } from "../hooks/useToggle"
-
+import { MenuContext } from "../hooks/MenuContext"
+import { useContext } from "react"
 
 export default function Header({ cart}){
     const [searchTerm, setSearchState] = useState("")
-    const {status, toggleStatus} = useToggle()
+    const { status, toggleStatus } = useContext(MenuContext)
 
     const navigate = useNavigate()
 

@@ -1,8 +1,11 @@
 import { useToggle } from "../hooks/useToggle"
 import close from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/close.png"
+import { MenuContext } from "../hooks/MenuContext"
+import { useContext } from "react"
+
 
 export default function Menu(){
-    const {status, toggleStatus} = useToggle()
+    const { status, toggleStatus } = useContext(MenuContext)
     let menuStyle = status ? "menuActive" : ""
 
     return(

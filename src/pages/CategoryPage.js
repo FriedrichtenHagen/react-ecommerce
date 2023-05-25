@@ -6,7 +6,7 @@ import ProductFeed from "../components/ProductFeed";
 import Footer from '../components/Footer';
 import close from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/close.png"
 import { useNavigate } from 'react-router-dom';
-
+import Menu from '../components/Menu';
 
 export default function CategoryPage( {cart, handleMenuStart}){
     const [productFeed, setProductFeed] = useState(data)
@@ -56,6 +56,7 @@ export default function CategoryPage( {cart, handleMenuStart}){
                 <ProductFeed  productFeed={searchMatches ? searchMatches : productFeed}
                                 cart={cart}/>
             <Footer/>
+            <Menu/>
         </div>
     )
 }    

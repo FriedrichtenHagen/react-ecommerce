@@ -16,10 +16,7 @@ function Homepage( {cart, handleMenuStart, menuActive}) {
       />
       <Body/>
       <Footer/>
-      <Menu 
-        handleMenuStart={handleMenuStart}
-        menuActive={menuActive}  
-      />
+      <Menu/>
     </div>
   );
 }

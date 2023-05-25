@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import data from "../data/product-feed"
 import arrowDown from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/arrowDown.png"
 import cloneDeep from 'lodash/cloneDeep';
-
+import Menu from '../components/Menu';
 
 
 export default function ProductPage({cart, handleAddingItemToCart, handleMenuStart}){
@@ -73,9 +73,10 @@ export default function ProductPage({cart, handleAddingItemToCart, handleMenuSta
 
             </div>
             <Footer/>
-
+           
             <Modal cartModalActive={cartModalActive}handleSizeClick={handleSizeClick}
             handleSizeChoice={handleSizeChoice}/>
+            <Menu/>
         </div>
     )
 }    

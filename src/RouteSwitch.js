@@ -5,7 +5,8 @@ import Homepage from "./pages/HomePage.js";
 import Category from "./pages/CategoryPage.js";
 import ProductPage from "./pages/ProductPage.js";
 import ShoppingCart from "./pages/ShoppingCart.js";
-
+import { MenuContext } from "./hooks/MenuContext.js"
+import { useToggle } from "./hooks/useToggle"
 /*
 to do:
 
@@ -19,6 +20,7 @@ to do:
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
+  const {status, toggleStatus} = useToggle()
 
   function handleAddingItemToCart(selectedProduct){
     // check for duplicate
@@ -81,25 +83,27 @@ const RouteSwitch = () => {
   
   return (
     <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<Homepage 
+      <MenuContext.Provider value={{status: status, toggleStatus:  toggleStatus}}>
+        <Routes>
+            <Route path="/" element={<Homepage
+              cart={cart}
+            />} />
+          <Route path="/category" element={<Category
             cart={cart}
           />} />
-        <Route path="/category" element={<Category 
-          cart={cart}
-        />} />
-        <Route path="/productpage/:productName" element={<ProductPage 
-          cart={cart} 
-          handleAddingItemToCart={handleAddingItemToCart}
-        />}/>
-        <Route path="/shoppingcart" element=
-          {<ShoppingCart 
+          <Route path="/productpage/:productName" element={<ProductPage
             cart={cart}
-            handleRemovingItemFromCart={handleRemovingItemFromCart}
-            handleAmountChange={handleAmountChange}
-          />} 
-        />
-      </Routes>
+            handleAddingItemToCart={handleAddingItemToCart}
+          />}/>
+          <Route path="/shoppingcart" element=
+            {<ShoppingCart
+              cart={cart}
+              handleRemovingItemFromCart={handleRemovingItemFromCart}
+              handleAmountChange={handleAmountChange}
+            />}
+          />
+        </Routes>
+      </MenuContext.Provider>
     </BrowserRouter>
   );
 };
