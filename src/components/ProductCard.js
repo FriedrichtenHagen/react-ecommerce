@@ -7,8 +7,6 @@ export default function ProductCard({product}){
                 <img src={product.image} className="productImage" alt={product.name} />
                 <div className="productName">{product.name}</div>
                 <div className="productPrice">{product.price} EUR</div>
-
-
             </Link>
     )
 } 
