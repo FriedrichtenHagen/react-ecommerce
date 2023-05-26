@@ -29,16 +29,18 @@ function SignIn(){
         <div className="signIn">
             <Expander
                 expanderTopText="Welcome back"
-                expanderButtonText="click me"
+                expanderButtonText="Login"
                 toggleLoginActive={toggleLoginActive}
                 loginActive={loginActive} 
-                expandContent={<LoginForm/>}/>
+                expandContent={<LoginForm/>}
+                showOnActive={true}/>
             <Expander
                 expanderTopText="I`m new here"
                 expanderButtonText="Register"
                 toggleLoginActive={toggleLoginActive}
                 loginActive={loginActive}
-                expandContent={<RegistrationForm/>} />
+                expandContent={<RegistrationForm/>}
+                showOnActive={false} />
         </div>
     )
 }

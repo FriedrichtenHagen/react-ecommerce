@@ -658,6 +658,7 @@ login form
 */
 .signIn{
   padding: 0px 15px;
+  min-height: 500px;
 }
 
 .standardInput{
@@ -674,16 +675,29 @@ login form
 /*
 registration form
 */
-.registrationForm{
-  margin-bottom: 30px;
-}
+
 
 /*
 expander component
 */
+.expander{
+  margin-bottom: 90px;
+  border-bottom: var(--thin-line);
+}
 .expand{
   display: none;
+
+}
+.expanderTop{
+  margin-top: 30px;
+}
+.expanderTopText{
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 .expandActive{
   display: flex;
+}
+button.expandActive{
+  display: none;
 }

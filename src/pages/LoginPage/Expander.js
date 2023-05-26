@@ -1,15 +1,29 @@
-export default function Expander({expanderTopText, expanderButtonText, toggleLoginActive,loginActive, expandContent}){
-
-        let expandActive = "";
-        if(loginActive){
-            expandActive="expandActive"
+export default function Expander({
+    expanderTopText, 
+    expanderButtonText,
+    toggleLoginActive,
+    loginActive, 
+    expandContent,
+    showOnActive}){
+        let expandActive;
+        if(showOnActive){
+            expandActive = "";
+            if(loginActive){
+                expandActive="expandActive"
+            }
+        } else{
+            expandActive = "expandActive";
+            if(loginActive){
+                expandActive=""
+            }
         }
+
         
         return(
             <div className="expander">
                 <div className="expanderTop">
-                    {expanderTopText}
-                    <button className="checkout" onClick={toggleLoginActive}>{expanderButtonText}</button>
+                    <div className="expanderTopText">{expanderTopText}</div>
+                    <button className={"checkout "+ expandActive} onClick={toggleLoginActive}>{expanderButtonText}</button>
                 </div>
     
     
