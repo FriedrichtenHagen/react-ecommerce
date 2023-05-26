@@ -137,4 +137,3 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
     );
 }
 
-

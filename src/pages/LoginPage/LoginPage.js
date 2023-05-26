@@ -1,5 +1,8 @@
 import Footer from "../../components/Footer"
 import Header from "../../components/Header"
+import RegistrationForm from "./RegistrationForm"
+import LoginForm from "./LoginForm"
+import { useState } from "react"
 
 export default function LoginPage({cart}){
 
@@ -7,20 +10,25 @@ export default function LoginPage({cart}){
     return(
         <div className="loginPage">
             <Header cart={cart}/>
-            <LoginForm/>
+            <SignIn/>
             <Footer/>
         </div>
     )
 }
 
+function SignIn(){
+    const [loginActive, setLoginActive] = useState(true)
 
-function LoginForm(){
+    function toggleLoginActive(){
+        setLoginActive(!loginActive)
+        console.log(loginActive)
+    }
+
     return(
-        <div className="loginForm">
-            <form action="">
-                <input type="text" />
-                <button type="submit">Login</button>
-            </form>
+        <div className="signIn">
+            <LoginForm loginActive={loginActive} toggleLoginActive={toggleLoginActive}/>
+            <RegistrationForm loginActive={loginActive} toggleLoginActive={toggleLoginActive}/>
         </div>
     )
 }
+
