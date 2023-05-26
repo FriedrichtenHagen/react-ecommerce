@@ -660,13 +660,6 @@ login form
   padding: 0px 15px;
 }
 
-.loginForm{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-}
 .standardInput{
   padding: 2px;
   height: 30px;
@@ -684,7 +677,11 @@ registration form
 .registrationForm{
   margin-bottom: 30px;
 }
-.regFormExpand{
+
+/*
+expander component
+*/
+.expand{
   display: none;
 }
 .expandActive{
