@@ -3,7 +3,7 @@ import { useState } from "react"
 export default function LoginForm(){
     const [password, setPassword] = useState("")
 
-    function handleFormSubmit(e){
+    function handleLogFormSubmit(e){
         e.preventDefault()
         console.log(e.target[0].value, e.target[1].value)
     }
@@ -13,7 +13,7 @@ export default function LoginForm(){
 
     return(
         
-        <form className="loginForm" action="" onSubmit={handleFormSubmit} >
+        <form className="loginForm" action="" onSubmit={handleLogFormSubmit} >
             <label htmlFor="email">Email</label>
             <input type="text" className="standardInput" autoComplete="email" name="email" placeholder="Email address" />
             <label htmlFor="password">Password</label>

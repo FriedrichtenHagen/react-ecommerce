@@ -5,6 +5,7 @@ export default function RegistrationForm(){
 
     function handleRegFormSubmit(e){
         e.preventDefault()
+        console.log(e.target[0].value, e.target[1].value)
     }
     function handlePasswordChange(e){
         setPassword(e.target.value)

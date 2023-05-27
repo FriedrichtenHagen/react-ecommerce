@@ -659,6 +659,9 @@ login form
 .signIn{
   padding: 0px 15px;
   min-height: 500px;
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .standardInput{
@@ -685,11 +688,14 @@ expander component
   border-bottom: var(--thin-line);
 }
 .expand{
-  display: none;
-
+  opacity: 0;
+  height: 0px;
+  transition: all 0.26s ease-in-out;
+  transition-property: height, opacity;
 }
 .expanderTop{
   margin-top: 30px;
+  margin-bottom: 10px;
 }
 .expanderTopText{
   font-weight: 600;
@@ -697,6 +703,10 @@ expander component
 }
 .expandActive{
   display: flex;
+  height: 100px;
+  opacity: 1;
+  transition: all 0.26s ease-in-out;
+  transition-property: height, opacity;
 }
 button.expandActive{
   display: none;
