@@ -17,7 +17,6 @@ to do:
 - useContext for cart
 - look into animation library to animate changes in the prices
 - fix the text alignment for delivery in shopping cart
-- use Context API for cart?
 */
 
 
