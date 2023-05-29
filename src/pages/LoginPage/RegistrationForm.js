@@ -14,6 +14,13 @@ export default function RegistrationForm(){
 
 
         <form className="registrationForm" action="" onSubmit={handleRegFormSubmit} >
+            <label htmlFor="regFirstName">First Name</label>
+            <input type="text" className="standardInput" name="regFirstName" placeholder="First name" />
+
+            <label htmlFor="regLastName">Last Name</label>
+            <input type="text" className="standardInput" name="regLastName" placeholder="Last name" />
+
+            
             <label htmlFor="regEmail">Email</label>
             <input type="text" className="standardInput" autoComplete="email" name="regEmail" placeholder="Email address" />
 
