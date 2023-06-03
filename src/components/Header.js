@@ -13,7 +13,7 @@ import { useContext } from "react"
 
 export default function Header({ cart }){
     const [searchTerm, setSearchState] = useState("")
-    const { status, toggleStatus } = useContext(MenuContext)
+    const { toggleStatus } = useContext(MenuContext)
     const navigate = useNavigate()
 
 

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Menu from '../../components/Menu';
 
 export default function CategoryPage( {cart}){
-    const [productFeed, setProductFeed] = useState(data)
+    const [productFeed ] = useState(data)
     const navigate = useNavigate()
     const location = useLocation();
     let searchMatches=null;
