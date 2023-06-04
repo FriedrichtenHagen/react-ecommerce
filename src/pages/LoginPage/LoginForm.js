@@ -1,11 +1,31 @@
 import { useState } from "react"
+import { collection, getDocs } from "firebase/firestore"; 
+import {db} from "../../config/firestore"
+
+
+    async function getCustomers(){
+        const querySnapshot = await getDocs(collection(db, "customers"));
+        querySnapshot.forEach((doc) => {
+          console.dir(doc.data());
+        });
+    }
+
+
 
 export default function LoginForm(){
     const [password, setPassword] = useState("")
 
+
+
+
     function handleLogFormSubmit(e){
         e.preventDefault()
         console.log(e.target[0].value, e.target[1].value)
+
+
+        getCustomers()
+
+
     }
     function handlePasswordChange(e){
         setPassword(e.target.value)
