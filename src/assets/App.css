@@ -684,7 +684,7 @@ registration form
 expander component
 */
 .expander{
-  margin-bottom: 90px;
+  margin-bottom: 160px;
   border-bottom: var(--thin-line);
 }
 .expand{
