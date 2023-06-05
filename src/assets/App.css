@@ -703,7 +703,7 @@ expander component
 }
 .expandActive{
   display: flex;
-  height: 100px;
+  height: 330px;
   opacity: 1;
   transition: all 0.26s ease-in-out;
   transition-property: height, opacity;
