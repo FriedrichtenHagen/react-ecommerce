@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import { useNavigate } from 'react-router-dom';
 
 export default function RegistrationForm(){
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     function handleRegFormSubmit(e){
         e.preventDefault()
@@ -23,7 +24,8 @@ export default function RegistrationForm(){
             // Signed in 
             const user = userCredential.user;
             console.log(user)
-            // ...
+            // redirect to client home page
+            navigate({pathname: '/client-home-page'})
           })
           .catch((error) => {
             const errorCode = error.code;

@@ -7,6 +7,7 @@ import ShoppingCart from "./pages/ShoppingCartPage/ShoppingCartPage.js";
 import { MenuContext } from "./context/MenuContext.js"
 import { useToggle } from "./hooks/useToggle"
 import LoginPage from "./pages/LoginPage/LoginPage.js";
+import ClientHomePage from "./pages/ClientHomePage/ClientHomePage.js";
 /*
 to do:
 
@@ -105,6 +106,11 @@ const RouteSwitch = () => {
           />
           <Route path="/loginpage" element=
             {<LoginPage
+              cart={cart}
+            />}
+          />
+          <Route path="/client-home-page" element=
+            {<ClientHomePage
               cart={cart}
             />}
           />
