@@ -10,6 +10,8 @@ export default function ClientHomePageContent( {handleSignOut, signedIn}){
     // should the login page redirect to client home page if signed in?
 
     
+    // Wednesday: make sure the user is still signed in after routing to client home page!!!
+
     return(
         signedIn ? 
         <>
