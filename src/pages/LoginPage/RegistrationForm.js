@@ -6,6 +6,9 @@ export default function RegistrationForm(){
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
 
+    // add error handling to form
+
+
     function handleRegFormSubmit(e){
         e.preventDefault()
      

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import RouteSwitch from "./RouteSwitch";
-
+import {db} from "./config/firestore"
 
 
 

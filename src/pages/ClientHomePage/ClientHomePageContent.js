@@ -22,6 +22,8 @@ export default function ClientHomePageContent( {handleSignOut}){
         
         You are signed in!
         Welcome {currentUser.email}
+        <p>You created your account: {currentUser.metadata.creationTime}</p>
+        <p>Your last login was: {currentUser.metadata.lastSignInTime}</p>
         <button onClick={handleSignOut}>Sign out</button>
         
         </>

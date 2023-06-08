@@ -1,29 +1,37 @@
 import { useState } from "react"
-import { collection, getDocs } from "firebase/firestore"; 
-import {db} from "../../config/firestore"
+// import { collection, getDocs } from "firebase/firestore"; 
+// import {db} from "../../config/firestore"
+import { useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 
-    async function getCustomers(){
-        const querySnapshot = await getDocs(collection(db, "customers"));
-        querySnapshot.forEach((doc) => {
-          console.dir(doc.data());
-        });
-    }
+
 
 
 
 export default function LoginForm(){
     const [password, setPassword] = useState("")
-
+    const navigate = useNavigate()
 
 
 
     function handleLogFormSubmit(e){
         e.preventDefault()
-        console.log(e.target[0].value, e.target[1].value)
 
+        let email = e.target[0].value
+        let password = e.target[1].value
 
-        getCustomers()
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // redirect to client home page
+            navigate({pathname: '/client-home-page'})
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            console.log(errorMessage)
+        });
+                
 
 
     }
