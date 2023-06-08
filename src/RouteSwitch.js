@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Homepage from "./pages/Homepage/HomePage.js";
 import Category from "./pages/CategoryPage/CategoryPage.js";
 import ProductPage from "./pages/ProductPage/ProductPage.js";
@@ -8,6 +8,8 @@ import { MenuContext } from "./context/MenuContext.js"
 import { useToggle } from "./hooks/useToggle"
 import LoginPage from "./pages/LoginPage/LoginPage.js";
 import ClientHomePage from "./pages/ClientHomePage/ClientHomePage.js";
+import {AuthProvider} from "./context/AuthContext"
+import { getAuth, onAuthStateChanged} from "firebase/auth";
 /*
 to do:
 
@@ -23,6 +25,7 @@ to do:
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
   const {status, toggleStatus} = useToggle()
+  const [currentUser, setCurrentUser] = useState(null)
 
   function handleAddingItemToCart(selectedProduct){
     // check for duplicate
@@ -82,40 +85,61 @@ const RouteSwitch = () => {
     }
     return false
   }
+
+
+useEffect(() => {
+    // auth observer
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in
+        setCurrentUser(user)
+        
+    } else {
+        // User is signed out
+        // ...
+        setCurrentUser(null)
+    }
+    });
+
+}, [])
+
   
   return (
     <BrowserRouter>
-      <MenuContext.Provider value={{status: status, toggleStatus:  toggleStatus}}>
-        <Routes>
-            <Route path="/" element={<Homepage
+    <AuthProvider value={currentUser}>
+        <MenuContext.Provider value={{status: status, toggleStatus:  toggleStatus}}>
+          <Routes>
+              <Route path="/" element={<Homepage
+                cart={cart}
+              />} />
+            <Route path="/category" element={<Category
               cart={cart}
             />} />
-          <Route path="/category" element={<Category
-            cart={cart}
-          />} />
-          <Route path="/productpage/:productName" element={<ProductPage
-            cart={cart}
-            handleAddingItemToCart={handleAddingItemToCart}
-          />}/>
-          <Route path="/shoppingcart" element=
-            {<ShoppingCart
+            <Route path="/productpage/:productName" element={<ProductPage
               cart={cart}
-              handleRemovingItemFromCart={handleRemovingItemFromCart}
-              handleAmountChange={handleAmountChange}
-            />}
-          />
-          <Route path="/loginpage" element=
-            {<LoginPage
-              cart={cart}
-            />}
-          />
-          <Route path="/client-home-page" element=
-            {<ClientHomePage
-              cart={cart}
-            />}
-          />
-        </Routes>
-      </MenuContext.Provider>
+              handleAddingItemToCart={handleAddingItemToCart}
+            />}/>
+            <Route path="/shoppingcart" element=
+              {<ShoppingCart
+                cart={cart}
+                handleRemovingItemFromCart={handleRemovingItemFromCart}
+                handleAmountChange={handleAmountChange}
+              />}
+            />
+            <Route path="/loginpage" element=
+              {<LoginPage
+                cart={cart}
+              />}
+            />
+            <Route path="/client-home-page" element=
+              {<ClientHomePage
+                cart={cart}
+              />}
+            />
+          </Routes>
+        </MenuContext.Provider>
+      </AuthProvider>
     </BrowserRouter>
   );
 };
