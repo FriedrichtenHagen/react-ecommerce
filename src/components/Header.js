@@ -2,6 +2,7 @@ import nalgeneLogo from "/home/friedrichtenhagen/ecommerce-site/src/images/logo-
 import shoppingcart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/shopping-cart.png"
 import heart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/heart.png"
 import user from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/user.png"
+import userLoggedIn from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/user-logged-in.png"
 import lang from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/internet.png"
 import hamburger from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/hamburger.png"
 import search from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/search.png"
@@ -10,11 +11,23 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { MenuContext } from "../context/MenuContext"
 import { useContext } from "react"
+import { useAuthValue } from "../context/AuthContext"
 
 export default function Header({ cart }){
     const [searchTerm, setSearchState] = useState("")
     const { toggleStatus } = useContext(MenuContext)
     const navigate = useNavigate()
+
+
+    // choose user icon depending on logged in status
+    //  check auth status
+    const currentUser = useAuthValue()
+    let userIcon = null;
+    if(currentUser){
+        userIcon = userLoggedIn
+    }else{
+        userIcon = user
+    }
 
 
     // display the number of items in the cart
@@ -44,7 +57,7 @@ export default function Header({ cart }){
                 </Link>
                 <div className="headerIcons">
                     <Link to="/loginpage" className="ctaLink">
-                        <img src={user} className="headerIcon" alt="user" />
+                        <img src={userIcon} className="headerIcon" alt="user" />
                     </Link>
                     <img src={heart} className="headerIcon" alt="heart" />
                     <img src={lang} className="headerIcon" alt="language select" />

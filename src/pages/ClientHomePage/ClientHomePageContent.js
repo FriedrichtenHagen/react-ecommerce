@@ -6,7 +6,7 @@ export default function ClientHomePageContent( {handleSignOut}){
     //const { currentUser, setCurrentUser } = useContext(AuthContext)
     // add an icon in header that shows the user is logged in
     // block client homepage if user is not signed in
-    // individualize client homepage (show user data)
+    // style client home page
     // save cart to user 
     // should the login page redirect to client home page if signed in?
 
