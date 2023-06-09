@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Homepage from "./pages/Homepage/HomePage.js";
 import Category from "./pages/CategoryPage/CategoryPage.js";
@@ -128,14 +128,14 @@ useEffect(() => {
               />}
             />
             <Route path="/loginpage" element=
-              {<LoginPage
+              {currentUser ? <Navigate replace to={"/client-home-page"} /> :
+              <LoginPage
                 cart={cart}
               />}
             />
             <Route path="/client-home-page" element=
-              {<ClientHomePage
-                cart={cart}
-              />}
+              {currentUser ? <ClientHomePage
+                cart={cart}/> : <Navigate replace to={"/loginpage"}/>}
             />
           </Routes>
         </MenuContext.Provider>
