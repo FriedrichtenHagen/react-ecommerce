@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { doc, setDoc } from "firebase/firestore"; 
+import { db } from "../../config/firestore"
 
 export default function RegistrationForm(){
     const [password, setPassword] = useState("")
@@ -11,7 +13,6 @@ export default function RegistrationForm(){
 
     function handleRegFormSubmit(e){
         e.preventDefault()
-     
 
         const userData = {
             firstName: e.target[0].value,
@@ -19,14 +20,22 @@ export default function RegistrationForm(){
             email: e.target[2].value,
             password: e.target[3].value,
         }
-
-
+        // create new user
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, userData.email, userData.password)
           .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             console.log(user)
+
+            // create a customer document with the user.id 
+            addDocumentToCollection(userData, user.uid)
+
+            // save the cart to that user 
+
+
+
+
             // redirect to client home page
             navigate({pathname: '/client-home-page'})
           })
@@ -37,14 +46,27 @@ export default function RegistrationForm(){
             console.log(errorMessage)
             // ..
           });
-
-
-
-
         console.log(userData)
         // the database needs to be checked for a duplicate email
 
     }
+    // add the user data and auth uid to the database
+    async function addDocumentToCollection(userData, uid){
+      try {
+        await setDoc(doc(db, "customers", uid), {
+          email: userData.email,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+        });
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+
+
+
+
+
     function handlePasswordChange(e){
         setPassword(e.target.value)
     }
