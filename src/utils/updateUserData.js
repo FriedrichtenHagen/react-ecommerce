@@ -12,12 +12,9 @@ import { db } from "../config/firestore"
 
 export default async function updateUserData(userData, uid){
     try {
-      await setDoc(doc(db, "customers", uid), {
-        email: userData.email,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        cart: userData.cart
-      }, { merge: true });
+      await setDoc(doc(db, "customers", uid), 
+        userData
+      , { merge: true });
     } catch (e) {
       console.error("Error adding document: ", e);
     }

@@ -11,6 +11,7 @@ import ClientHomePage from "./pages/ClientHomePage/ClientHomePage.js";
 import {AuthProvider} from "./context/AuthContext"
 import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
+import updateUserData from "./utils/updateUserData";
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
@@ -92,6 +93,25 @@ useEffect(() => {
     });
 
 }, [])
+
+useEffect(() => {
+  console.log(" state Has changed")
+
+  const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in
+      // update the cart change to the database 
+      updateUserData({cart: cart}, user.uid)
+        
+    } else {
+        // User is signed out
+
+    }
+    });
+
+
+},[cart])
 
   
   return (
