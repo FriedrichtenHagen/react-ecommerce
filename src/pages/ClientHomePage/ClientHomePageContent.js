@@ -1,12 +1,21 @@
 import { useAuthValue } from "../../context/AuthContext"
 //import { AuthContext } from "../context/AuthContext"
-//import { useContext } from "react"
+import { CartContext } from "../../context/CartContext"
+import { useContext } from "react"
 
 export default function ClientHomePageContent( {handleSignOut}){
+    const {cart} = useContext(CartContext)
     // style client home page
     // save cart to user 
 
 
+    const shoppingCart = cart.map(product => {
+    return(
+             <p>{product.name}</p>
+         )
+
+     })
+    console.log(cart)
     
     const currentUser = useAuthValue()
     console.log(currentUser)
@@ -17,6 +26,7 @@ export default function ClientHomePageContent( {handleSignOut}){
                 You are signed in!
                 Welcome {currentUser.email}
             </h1>
+            {shoppingCart}
             <p>You created your account: {currentUser.metadata.creationTime}</p>
             <p>Your last login was: {currentUser.metadata.lastSignInTime}</p>
             <button onClick={handleSignOut} id="signout">Sign out</button>

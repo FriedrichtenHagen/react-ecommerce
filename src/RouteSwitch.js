@@ -9,6 +9,7 @@ import { useToggle } from "./hooks/useToggle"
 import LoginPage from "./pages/LoginPage/LoginPage.js";
 import ClientHomePage from "./pages/ClientHomePage/ClientHomePage.js";
 import {AuthProvider} from "./context/AuthContext"
+import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 /*
 to do:
@@ -16,7 +17,6 @@ to do:
 - style shop for desktop view
   - add hover effects
 - all links on home page should lead to the product page
-- useContext for cart
 - look into animation library to animate changes in the prices
 - fix the text alignment for delivery in shopping cart
 */
@@ -107,39 +107,41 @@ useEffect(() => {
   
   return (
     <BrowserRouter>
-    <AuthProvider value={currentUser}>
-        <MenuContext.Provider value={{status: status, toggleStatus:  toggleStatus}}>
-          <Routes>
-              <Route path="/" element={<Homepage
-                cart={cart}
-              />} />
-            <Route path="/category" element={<Category
-              cart={cart}
-            />} />
-            <Route path="/productpage/:productName" element={<ProductPage
-              cart={cart}
-              handleAddingItemToCart={handleAddingItemToCart}
-            />}/>
-            <Route path="/shoppingcart" element=
-              {<ShoppingCart
-                cart={cart}
-                handleRemovingItemFromCart={handleRemovingItemFromCart}
-                handleAmountChange={handleAmountChange}
-              />}
-            />
-            <Route path="/loginpage" element=
-              {currentUser ? <Navigate replace to={"/client-home-page"} /> :
-              <LoginPage
-                cart={cart}
-              />}
-            />
-            <Route path="/client-home-page" element=
-              {currentUser ? <ClientHomePage
-                cart={cart}/> : <Navigate replace to={"/loginpage"}/>}
-            />
-          </Routes>
-        </MenuContext.Provider>
-      </AuthProvider>
+      <CartProvider value={{cart: cart, setCart: setCart}}>
+        <AuthProvider value={currentUser}>
+            <MenuContext.Provider value={{status: status, toggleStatus:  toggleStatus}}>
+              <Routes>
+                  <Route path="/" element={<Homepage
+                    cart={cart}
+                  />} />
+                <Route path="/category" element={<Category
+                  cart={cart}
+                />} />
+                <Route path="/productpage/:productName" element={<ProductPage
+                  cart={cart}
+                  handleAddingItemToCart={handleAddingItemToCart}
+                />}/>
+                <Route path="/shoppingcart" element=
+                  {<ShoppingCart
+                    cart={cart}
+                    handleRemovingItemFromCart={handleRemovingItemFromCart}
+                    handleAmountChange={handleAmountChange}
+                  />}
+                />
+                <Route path="/loginpage" element=
+                  {currentUser ? <Navigate replace to={"/client-home-page"} /> :
+                  <LoginPage
+                    cart={cart}
+                  />}
+                />
+                <Route path="/client-home-page" element=
+                  {currentUser ? <ClientHomePage
+                    cart={cart}/> : <Navigate replace to={"/loginpage"}/>}
+                />
+              </Routes>
+            </MenuContext.Provider>
+          </AuthProvider>
+        </CartProvider>
     </BrowserRouter>
   );
 };
