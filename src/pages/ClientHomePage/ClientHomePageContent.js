@@ -1,12 +1,9 @@
 import { useAuthValue } from "../../context/AuthContext"
-//import { AuthContext } from "../context/AuthContext"
 import { CartContext } from "../../context/CartContext"
 import { useContext } from "react"
 
 export default function ClientHomePageContent( {handleSignOut}){
     const {cart} = useContext(CartContext)
-    // style client home page
-    // save cart to user 
 
 
     const shoppingCart = cart.map(product => {

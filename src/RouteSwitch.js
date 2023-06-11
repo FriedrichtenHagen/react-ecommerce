@@ -11,16 +11,6 @@ import ClientHomePage from "./pages/ClientHomePage/ClientHomePage.js";
 import {AuthProvider} from "./context/AuthContext"
 import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
-/*
-to do:
-
-- style shop for desktop view
-  - add hover effects
-- all links on home page should lead to the product page
-- look into animation library to animate changes in the prices
-- fix the text alignment for delivery in shopping cart
-*/
-
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
@@ -97,7 +87,6 @@ useEffect(() => {
         
     } else {
         // User is signed out
-        // ...
         setCurrentUser(null)
     }
     });

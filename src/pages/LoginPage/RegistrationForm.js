@@ -2,12 +2,15 @@ import { useState } from "react"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from "firebase/firestore"; 
-import { db } from "../../config/firestore"
+
+import { useContext } from "react"
+import { CartContext } from "../../context/CartContext"
+import updateUserData from "../../utils/updateUserData";
 
 export default function RegistrationForm(){
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
-
+    const {cart} = useContext(CartContext)
     // add error handling to form
 
 
@@ -19,6 +22,7 @@ export default function RegistrationForm(){
             lastName: e.target[1].value,
             email: e.target[2].value,
             password: e.target[3].value,
+            cart: cart
         }
         // create new user
         const auth = getAuth();
@@ -29,12 +33,7 @@ export default function RegistrationForm(){
             console.log(user)
 
             // create a customer document with the user.id 
-            addDocumentToCollection(userData, user.uid)
-
-            // save the cart to that user 
-
-
-
+            updateUserData(userData, user.uid)
 
             // redirect to client home page
             navigate({pathname: '/client-home-page'})
@@ -51,17 +50,17 @@ export default function RegistrationForm(){
 
     }
     // add the user data and auth uid to the database
-    async function addDocumentToCollection(userData, uid){
-      try {
-        await setDoc(doc(db, "customers", uid), {
-          email: userData.email,
-          firstName: userData.firstName,
-          lastName: userData.lastName,
-        });
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-    }
+    // async function addDocumentToCollection(userData, uid){
+    //   try {
+    //     await setDoc(doc(db, "customers", uid), {
+    //       email: userData.email,
+    //       firstName: userData.firstName,
+    //       lastName: userData.lastName,
+    //     });
+    //   } catch (e) {
+    //     console.error("Error adding document: ", e);
+    //   }
+    // }
 
 
 
