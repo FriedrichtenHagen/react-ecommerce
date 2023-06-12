@@ -15,7 +15,6 @@ export default function ClientHomePage({cart}){
         const auth = getAuth();
         signOut(auth).then(() => {
           // Sign-out successful.
-          console.log(auth)
           
         }).catch((error) => {
           // An error happened.

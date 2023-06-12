@@ -3,7 +3,7 @@ import { useState } from "react"
 // import {db} from "../../config/firestore"
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import readUserData from "../../utils/readUserData.js";
 
 
 
@@ -24,6 +24,8 @@ export default function LoginForm(){
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+            // read the user data from database (cart)
+            readUserData(userCredential.user.uid)
             // redirect to client home page
             navigate({pathname: '/client-home-page'})
         })

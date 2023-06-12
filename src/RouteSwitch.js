@@ -13,6 +13,8 @@ import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
 
+import data from "./data/product-feed.js";
+
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
   const {status, toggleStatus} = useToggle()
@@ -77,7 +79,7 @@ const RouteSwitch = () => {
     return false
   }
 
-
+// on initial render
 useEffect(() => {
     // auth observer
     const auth = getAuth();
@@ -85,18 +87,16 @@ useEffect(() => {
     if (user) {
         // User is signed in
         setCurrentUser(user)
-        
+        console.log("user just signed in")
     } else {
         // User is signed out
         setCurrentUser(null)
     }
     });
-
 }, [])
 
+// watch for changes to the cart
 useEffect(() => {
-  console.log(" state Has changed")
-
   const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -109,8 +109,6 @@ useEffect(() => {
 
     }
     });
-
-
 },[cart])
 
   

@@ -55,7 +55,6 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
         // total price
         let total = Math.round((discountedTotal) * 100) / 100
 
-        console.log(nominalDiscount)
         // return a object containing all price information
         return {
             subtotal: subtotal,

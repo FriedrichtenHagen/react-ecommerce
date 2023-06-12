@@ -30,7 +30,6 @@ export default function RegistrationForm(){
           .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user)
 
             // create a customer document with the user.id 
             updateUserData(userData, user.uid)
@@ -45,7 +44,6 @@ export default function RegistrationForm(){
             console.log(errorMessage)
             // ..
           });
-        console.log(userData)
         // the database needs to be checked for a duplicate email
 
     }

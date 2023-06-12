@@ -16,7 +16,6 @@ export default function Recommendations({cart}){
         return product
     })
     let filteredNewProducts = newProducts.filter(item => item!==null)
-    console.log(filteredNewProducts)
     // choose 6 products to be recommended
 
 
