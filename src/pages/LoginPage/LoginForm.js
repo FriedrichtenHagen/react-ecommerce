@@ -4,7 +4,8 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import readUserData from "../../utils/readUserData.js";
-
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext"
 
 
 
@@ -12,7 +13,7 @@ import readUserData from "../../utils/readUserData.js";
 export default function LoginForm(){
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
-
+    const {setCart} = useContext(CartContext)
 
 
     function handleLogFormSubmit(e){
@@ -25,7 +26,16 @@ export default function LoginForm(){
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // read the user data from database (cart)
-            readUserData(userCredential.user.uid)
+            readUserData(userCredential.user.uid).then(x => setCart(x))
+            
+            // change cart state to match the database cart of the user
+
+
+
+
+
+
+
             // redirect to client home page
             navigate({pathname: '/client-home-page'})
         })

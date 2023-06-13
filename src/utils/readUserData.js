@@ -7,6 +7,8 @@ export default async function readUserDate(uid){
     
     if (docSnap.exists()) {
       console.log("users shopping cart:", docSnap.data().cart);
+      const databaseCart = docSnap.data().cart
+      return databaseCart
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");

@@ -27,14 +27,25 @@ const RouteSwitch = () => {
       let addedCart = cart.slice()
       addedCart[duplicatePosition].amount++
       setCart(addedCart)
-      console.log(cart)
+
     } else{
       // set amount to 0
       selectedProduct.amount = 1
       // add item to cart  
       setCart([...cart, selectedProduct])
     }
-    
+
+    // update the cart change to the database
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in
+        updateUserData({cart: cart}, user.uid)
+      } else {
+          // User is signed out
+        console.log("user is not signed in. Cart change cant be saved.")
+      }
+    });
   }
   function handleRemovingItemFromCart(selectedProduct){
     
@@ -56,6 +67,21 @@ const RouteSwitch = () => {
       setCart(deletedCart)
 
     }
+    
+    // update the cart change to the database
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in
+        updateUserData({cart: cart}, user.uid)
+      } else {
+          // User is signed out
+        console.log("user is not signed in. Cart change cant be saved.")
+      }
+    });
+
+
+
   }
   // change the product amount via select
   function handleAmountChange(e, product){
@@ -67,6 +93,18 @@ const RouteSwitch = () => {
     editedCart[productPosition].amount = parseInt(e.target.value)
     console.log(e.target.value)
     setCart(editedCart)
+
+    // update the cart change to the database
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in
+        updateUserData({cart: cart}, user.uid)
+      } else {
+          // User is signed out
+        console.log("user is not signed in. Cart change cant be saved.")
+      }
+    });
 
   }
   function checkForObjectInArray(object, array){
@@ -95,21 +133,21 @@ useEffect(() => {
 }, [])
 
 // watch for changes to the cart
-useEffect(() => {
-  const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in
-      // update the cart change to the database 
-      console.log("bout to update")
-      updateUserData({cart: cart}, user.uid)
+// useEffect(() => {
+//   const auth = getAuth();
+//     onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       // User is signed in
+//       // update the cart change to the database 
+//       console.log("bout to update")
+//       updateUserData({cart: cart}, user.uid)
         
-    } else {
-        // User is signed out
-      console.log("user is not signed in. Cart change cant be saved.")
-    }
-    });
-},[cart])
+//     } else {
+//         // User is signed out
+//       console.log("user is not signed in. Cart change cant be saved.")
+//     }
+//     });
+// },[cart])
 
   
   return (
