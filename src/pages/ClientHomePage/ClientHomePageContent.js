@@ -8,7 +8,7 @@ export default function ClientHomePageContent( {handleSignOut}){
 
     const shoppingCart = cart.map(product => {
     return(
-             <p key={crypto.randomUUID}>{product.name}</p>
+             <p key={crypto.randomUUID()}>{product.name}</p>
          )
 
      })

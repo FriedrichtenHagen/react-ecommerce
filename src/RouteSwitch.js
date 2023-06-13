@@ -13,7 +13,6 @@ import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
 
-import data from "./data/product-feed.js";
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
@@ -102,11 +101,12 @@ useEffect(() => {
     if (user) {
       // User is signed in
       // update the cart change to the database 
+      console.log("bout to update")
       updateUserData({cart: cart}, user.uid)
         
     } else {
         // User is signed out
-
+      console.log("user is not signed in. Cart change cant be saved.")
     }
     });
 },[cart])
