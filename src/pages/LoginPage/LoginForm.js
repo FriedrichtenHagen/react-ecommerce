@@ -26,15 +26,9 @@ export default function LoginForm(){
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // read the user data from database (cart)
-            readUserData(userCredential.user.uid).then(x => setCart(x))
-            
-            // change cart state to match the database cart of the user
-
-
-
-
-
-
+            readUserData(userCredential.user.uid)
+                // change cart state to match the database cart of the user    
+                .then(x => setCart(x))
 
             // redirect to client home page
             navigate({pathname: '/client-home-page'})

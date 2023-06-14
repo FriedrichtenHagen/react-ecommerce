@@ -1,7 +1,10 @@
 To Do:
 
 Backend
-- repopulate the cart from the database on sign in
+- bug: first item adding/deleting from cart does not seem to work
+  - possible causes: 
+    - async nature of setState()
+    - maybe syncronize the state with a useEffect??
 - every change (adding, removing, changing amount) to the cart must be syncronized with the database
 - look into a loading animation
 
