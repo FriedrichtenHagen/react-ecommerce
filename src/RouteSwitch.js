@@ -12,7 +12,7 @@ import {AuthProvider} from "./context/AuthContext"
 import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
-
+import readUserData from "./utils/readUserData.js";
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
@@ -35,17 +35,17 @@ const RouteSwitch = () => {
       setCart([...cart, selectedProduct])
     }
 
-    // update the cart change to the database
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in
-        updateUserData({cart: cart}, user.uid)
-      } else {
-          // User is signed out
-        console.log("user is not signed in. Cart change cant be saved.")
-      }
-    });
+    // // update the cart change to the database
+    // const auth = getAuth();
+    // onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //     // User is signed in
+    //     updateUserData({cart: cart}, user.uid)
+    //   } else {
+    //       // User is signed out
+    //     console.log("user is not signed in. Cart change cant be saved.")
+    //   }
+    // });
   }
   function handleRemovingItemFromCart(selectedProduct){
     
@@ -68,17 +68,17 @@ const RouteSwitch = () => {
 
     }
     
-    // update the cart change to the database
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in
-        updateUserData({cart: cart}, user.uid)
-      } else {
-          // User is signed out
-        console.log("user is not signed in. Cart change cant be saved.")
-      }
-    });
+    // // update the cart change to the database
+    // const auth = getAuth();
+    // onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //     // User is signed in
+    //     updateUserData({cart: cart}, user.uid)
+    //   } else {
+    //       // User is signed out
+    //     console.log("user is not signed in. Cart change cant be saved.")
+    //   }
+    // });
 
 
 
@@ -94,17 +94,17 @@ const RouteSwitch = () => {
     console.log(e.target.value)
     setCart(editedCart)
 
-    // update the cart change to the database
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in
-        updateUserData({cart: cart}, user.uid)
-      } else {
-          // User is signed out
-        console.log("user is not signed in. Cart change cant be saved.")
-      }
-    });
+    // // update the cart change to the database
+    // const auth = getAuth();
+    // onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //     // User is signed in
+    //     updateUserData({cart: cart}, user.uid)
+    //   } else {
+    //       // User is signed out
+    //     console.log("user is not signed in. Cart change cant be saved.")
+    //   }
+    // });
 
   }
   function checkForObjectInArray(object, array){
@@ -133,21 +133,44 @@ useEffect(() => {
 }, [])
 
 // watch for changes to the cart
-// useEffect(() => {
-//   const auth = getAuth();
-//     onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       // User is signed in
-//       // update the cart change to the database 
-//       console.log("bout to update")
-//       updateUserData({cart: cart}, user.uid)
+useEffect(() => {
+  const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in
+      // update the cart change to the database 
+      console.log("bout to update")
+      updateUserData({cart: cart}, user.uid)
         
-//     } else {
-//         // User is signed out
-//       console.log("user is not signed in. Cart change cant be saved.")
-//     }
+    } else {
+        // User is signed out
+      console.log("user is not signed in. Cart change cant be saved.")
+    }
+    });
+},[cart])
+
+// // watch for changes to currentUser
+// useEffect(()=> {
+//   const auth = getAuth();
+//   console.log(auth)
+
+//   if(auth.currentUser){
+//   let userUid = auth.currentUser.uid
+//   // read the user data from database (cart)
+//     readUserData(userUid)
+//         // change cart state to match the database cart of the user    
+//         .then(x => setCart(x))
+
+//     .catch((error) => {
+//         const errorMessage = error.message;
+//         console.log(errorMessage)
 //     });
-// },[cart])
+//   }
+    
+
+
+      
+// }, [currentUser])
 
   
   return (
