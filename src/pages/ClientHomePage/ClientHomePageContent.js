@@ -1,9 +1,10 @@
 import { useAuthValue } from "../../context/AuthContext"
 import { CartContext } from "../../context/CartContext"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
+import readUserData from "../../utils/readUserData.js";
 
 export default function ClientHomePageContent( {handleSignOut}){
-    const {cart} = useContext(CartContext)
+    const {cart, setCart} = useContext(CartContext)
 
 
     const shoppingCart = cart.map(product => {
@@ -12,16 +13,28 @@ export default function ClientHomePageContent( {handleSignOut}){
          )
 
      })
+        const currentUser = useAuthValue()
+        useEffect(()=>{
+            console.log(currentUser)
+            let userUid = currentUser.uid
+            // read the user data from database (cart)
+              const databaseData = readUserData(userUid)
+                  // change cart state to match the database cart of the user    
+                  .then(x => console.log(x))
+          
+              .catch((error) => {
+                  const errorMessage = error.message;
+                  console.log(errorMessage)
+              });
+        },[])
 
-    
-    const currentUser = useAuthValue()
 
 
     return(
         <div className="clientHomePageContent">
             <h1>
                 You are signed in!
-                Welcome {currentUser.email}
+                Welcome {currentUser.uid}
             </h1>
             {shoppingCart}
             <p>You created your account: {currentUser.metadata.creationTime}</p>

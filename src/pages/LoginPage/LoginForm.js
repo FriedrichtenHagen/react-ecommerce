@@ -24,22 +24,22 @@ export default function LoginForm(){
 
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-           //read the user data from database (cart)
-            readUserData(userCredential.user.uid)
+        // .then((userCredential) => {
+        //    //read the user data from database (cart)
+        //     readUserData(userCredential.user.uid)
                 
-                // change cart state to match the database cart of the user    
-                .then(x => {setCart(x)
-                console.log(x)
-                })
+        //         // change cart state to match the database cart of the user    
+        //         .then(x => {setCart(x)
+        //         console.log(x)
+        //         })
 
             //redirect to client home page
             
-        })
-        .catch((error) => {
-            const errorMessage = error.message;
-            console.log(errorMessage)
-        });
+        // })
+        // .catch((error) => {
+        //     const errorMessage = error.message;
+        //     console.log(errorMessage)
+        // });
                 
 
 

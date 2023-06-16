@@ -165,11 +165,7 @@ useEffect(() => {
 //         const errorMessage = error.message;
 //         console.log(errorMessage)
 //     });
-//   }
-    
-
-
-      
+//   }   
 // }, [currentUser])
 
   
@@ -197,14 +193,17 @@ useEffect(() => {
                   />}
                 />
                 <Route path="/loginpage" element=
-                  {currentUser ? <Navigate replace to={"/client-home-page"} /> :
-                  <LoginPage
+                  {currentUser ? <Navigate replace to={"/client-home-page"} /> : <LoginPage
                     cart={cart}
                   />}
                 />
                 <Route path="/client-home-page" element=
-                  {currentUser ? <ClientHomePage
-                    cart={cart}/> : <Navigate replace to={"/loginpage"}/>}
+                  {
+              
+                    currentUser ? <ClientHomePage
+                    cart={cart}/> : <Navigate replace to={"/loginpage"}
+                    
+                    />}
                 />
               </Routes>
             </MenuContext.Provider>
