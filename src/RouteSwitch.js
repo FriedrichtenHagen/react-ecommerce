@@ -13,11 +13,14 @@ import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
 import readUserData from "./utils/readUserData.js";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "./config/firestore"
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
   const {status, toggleStatus} = useToggle()
   const [currentUser, setCurrentUser] = useState(null)
+  const [currentUid, setCurrentUid] = useState(null)
 
   function handleAddingItemToCart(selectedProduct){
     // check for duplicate
@@ -124,7 +127,9 @@ useEffect(() => {
     if (user) {
         // User is signed in
         setCurrentUser(user)
+        setCurrentUid(user.uid)
         console.log("user just signed in")
+        
     } else {
         // User is signed out
         setCurrentUser(null)
@@ -139,7 +144,7 @@ useEffect(() => {
     if (user) {
       // User is signed in
       // update the cart change to the database 
-      console.log("bout to update")
+      console.log(auth)
       updateUserData({cart: cart}, user.uid)
         
     } else {
@@ -167,7 +172,28 @@ useEffect(() => {
 //     });
 //   }   
 // }, [currentUser])
+useEffect(() => {
 
+
+  async function readUserDate(){
+    const docRef = doc(db, "customers", currentUid);
+    const docSnap = await getDoc(docRef);
+    
+    if (docSnap.exists()) {
+      console.log("users data:", docSnap.data());
+      const databaseData = docSnap.data()
+      setCart(databaseData.cart)
+      return databaseData
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }  
+  if(currentUser){
+    readUserData();
+  }
+
+}, []);
   
   return (
     <BrowserRouter>
