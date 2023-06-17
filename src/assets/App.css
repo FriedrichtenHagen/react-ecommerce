@@ -240,7 +240,7 @@ body {
   background-color: black;
   color: white;
   padding: 25px 10px 10px 10px;
-  height: 160px;
+  height: 300px;
 }
 .footerTitles{
   font-size: 0.8rem;
@@ -628,10 +628,9 @@ button.checkout{
   transform: translate3d(0vw, 0, 0);
 }
 #menuIcon{
-  height: 30px;
+  height: 15px;
 }
 .menuBody{
-  height: 90%;
   display: flex;
     align-items: center;
     justify-content: center;
@@ -647,6 +646,11 @@ button.checkout{
   text-align: center;
   margin: 60px 0px;
   font-size: 2rem;
+  padding: 10px;
+}
+.menuLink{
+  text-decoration: none;
+  color: black;
 }
 
 /*

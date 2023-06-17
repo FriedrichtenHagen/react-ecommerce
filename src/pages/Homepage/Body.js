@@ -23,9 +23,7 @@ export default function Body(){
                     <img src={backpack} id="backpack" alt="backpack" />
                 </div>
                 <div className="discoverMore">
-                        <div className="discoverCta">
-                            Discover more:
-                        </div>
+                            <Link to="/category" className="discoverCta">Discover more:</Link>
                         <ul className="discoverUl">
                             <li>Accessories</li>
                             <li>Kids</li>
