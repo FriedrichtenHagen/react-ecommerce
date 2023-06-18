@@ -118,18 +118,18 @@ const RouteSwitch = () => {
 
 // on initial render
 useEffect(() => {
-    // auth observer
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // User is signed in
-        setCurrentUser(user)
-        console.log("user just signed in")
-    } else {
-        // User is signed out
-        setCurrentUser(null)
-    }
-    });
+  // auth observer
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+  if (user) {
+      // User is signed in
+      setCurrentUser(user)
+      console.log("user just signed in")
+  } else {
+      // User is signed out
+      setCurrentUser(null)
+  }
+  });
 }, [])
 
 // watch for changes to the cart
