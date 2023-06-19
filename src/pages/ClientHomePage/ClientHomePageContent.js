@@ -11,22 +11,20 @@ export default function ClientHomePageContent( {handleSignOut}){
     return(
              <p key={crypto.randomUUID()}>{product.name}</p>
          )
-
      })
-        const currentUser = useAuthValue()
-        useEffect(()=>{
-            console.log(currentUser)
-            let userUid = currentUser.uid
-            // read the user data from database (cart)
-              const databaseData = readUserData(userUid)
-                  // change cart state to match the database cart of the user    
-                  .then(x => console.log(x))
-          
-              .catch((error) => {
-                  const errorMessage = error.message;
-                  console.log(errorMessage)
-              });
-        },[])
+    const currentUser = useAuthValue()
+    useEffect(()=>{
+        let userUid = currentUser.uid
+        // read the user data from database (cart)
+        readUserData(userUid)
+                // change cart state to match the database cart of the user    
+                .then(x => setCart(x.cart))
+        
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage)
+            });
+    },[])
 
 
 

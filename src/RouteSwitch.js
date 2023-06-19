@@ -12,15 +12,12 @@ import {AuthProvider} from "./context/AuthContext"
 import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
-import readUserData from "./utils/readUserData.js";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "./config/firestore"
+
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
   const {status, toggleStatus} = useToggle()
   const [currentUser, setCurrentUser] = useState(null)
-  const [currentUid, setCurrentUid] = useState(null)
 
   function handleAddingItemToCart(selectedProduct){
     // check for duplicate
@@ -127,9 +124,7 @@ useEffect(() => {
     if (user) {
         // User is signed in
         setCurrentUser(user)
-        setCurrentUid(user.uid)
         console.log("user just signed in")
-        
     } else {
         // User is signed out
         setCurrentUser(null)
@@ -139,62 +134,19 @@ useEffect(() => {
 
 // watch for changes to the cart
 useEffect(() => {
-  const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-    if (user) {
+  // const auth = getAuth();
+  //   onAuthStateChanged(auth, (user) => {
+    if (currentUser) {
       // User is signed in
       // update the cart change to the database 
-      console.log(auth)
-      updateUserData({cart: cart}, user.uid)
+      updateUserData({cart: cart}, currentUser.uid)
         
     } else {
         // User is signed out
       console.log("user is not signed in. Cart change cant be saved.")
     }
-    });
 },[cart])
 
-// // watch for changes to currentUser
-// useEffect(()=> {
-//   const auth = getAuth();
-//   console.log(auth)
-
-//   if(auth.currentUser){
-//   let userUid = auth.currentUser.uid
-//   // read the user data from database (cart)
-//     readUserData(userUid)
-//         // change cart state to match the database cart of the user    
-//         .then(x => setCart(x))
-
-//     .catch((error) => {
-//         const errorMessage = error.message;
-//         console.log(errorMessage)
-//     });
-//   }   
-// }, [currentUser])
-useEffect(() => {
-
-
-  async function readUserDate(){
-    const docRef = doc(db, "customers", currentUid);
-    const docSnap = await getDoc(docRef);
-    
-    if (docSnap.exists()) {
-      console.log("users data:", docSnap.data());
-      const databaseData = docSnap.data()
-      setCart(databaseData.cart)
-      return databaseData
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
-    }
-  }  
-  if(currentUser){
-    readUserData();
-  }
-
-}, []);
-  
   return (
     <BrowserRouter>
       <CartProvider value={{cart: cart, setCart: setCart}}>
