@@ -5,6 +5,7 @@ Backend
   - possible causes: 
     - async nature of setState()
     - maybe syncronize the state with a useEffect??
+    - does the routing reset the state?
 - every change (adding, removing, changing amount) to the cart must be syncronized with the database
 - look into a loading animation
 

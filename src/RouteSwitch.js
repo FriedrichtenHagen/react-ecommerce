@@ -35,17 +35,17 @@ const RouteSwitch = () => {
       setCart([...cart, selectedProduct])
     }
 
-    // update the cart change to the database
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in
-        updateUserData({cart: cart}, user.uid)
-      } else {
-          // User is signed out
-        console.log("user is not signed in. Cart change cant be saved.")
-      }
-    });
+    // // update the cart change to the database
+    // const auth = getAuth();
+    // onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //     // User is signed in
+    //     updateUserData({cart: cart}, user.uid)
+    //   } else {
+    //       // User is signed out
+    //     console.log("user is not signed in. Cart change cant be saved.")
+    //   }
+    // });
   }
   function handleRemovingItemFromCart(selectedProduct){
     
@@ -68,17 +68,17 @@ const RouteSwitch = () => {
 
     }
     
-    // update the cart change to the database
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in
-        updateUserData({cart: cart}, user.uid)
-      } else {
-          // User is signed out
-        console.log("user is not signed in. Cart change cant be saved.")
-      }
-    });
+    // // update the cart change to the database
+    // const auth = getAuth();
+    // onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //     // User is signed in
+    //     updateUserData({cart: cart}, user.uid)
+    //   } else {
+    //       // User is signed out
+    //     console.log("user is not signed in. Cart change cant be saved.")
+    //   }
+    // });
 
 
 
@@ -94,17 +94,17 @@ const RouteSwitch = () => {
     console.log(e.target.value)
     setCart(editedCart)
 
-    // update the cart change to the database
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in
-        updateUserData({cart: cart}, user.uid)
-      } else {
-          // User is signed out
-        console.log("user is not signed in. Cart change cant be saved.")
-      }
-    });
+    // // update the cart change to the database
+    // const auth = getAuth();
+    // onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //     // User is signed in
+    //     updateUserData({cart: cart}, user.uid)
+    //   } else {
+    //       // User is signed out
+    //     console.log("user is not signed in. Cart change cant be saved.")
+    //   }
+    // });
 
   }
   function checkForObjectInArray(object, array){
@@ -133,23 +133,20 @@ useEffect(() => {
 }, [])
 
 // watch for changes to the cart
-// useEffect(() => {
-//   const auth = getAuth();
-//     onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       // User is signed in
-//       // update the cart change to the database 
-//       console.log("bout to update")
-//       updateUserData({cart: cart}, user.uid)
+useEffect(() => {
+  // const auth = getAuth();
+  //   onAuthStateChanged(auth, (user) => {
+    if (currentUser) {
+      // User is signed in
+      // update the cart change to the database 
+      updateUserData({cart: cart}, currentUser.uid)
         
-//     } else {
-//         // User is signed out
-//       console.log("user is not signed in. Cart change cant be saved.")
-//     }
-//     });
-// },[cart])
+    } else {
+        // User is signed out
+      console.log("user is not signed in. Cart change cant be saved.")
+    }
+},[cart])
 
-  
   return (
     <BrowserRouter>
       <CartProvider value={{cart: cart, setCart: setCart}}>
@@ -174,14 +171,17 @@ useEffect(() => {
                   />}
                 />
                 <Route path="/loginpage" element=
-                  {currentUser ? <Navigate replace to={"/client-home-page"} /> :
-                  <LoginPage
+                  {currentUser ? <Navigate replace to={"/client-home-page"} /> : <LoginPage
                     cart={cart}
                   />}
                 />
                 <Route path="/client-home-page" element=
-                  {currentUser ? <ClientHomePage
-                    cart={cart}/> : <Navigate replace to={"/loginpage"}/>}
+                  {
+              
+                    currentUser ? <ClientHomePage
+                    cart={cart}/> : <Navigate replace to={"/loginpage"}
+                    
+                    />}
                 />
               </Routes>
             </MenuContext.Provider>
