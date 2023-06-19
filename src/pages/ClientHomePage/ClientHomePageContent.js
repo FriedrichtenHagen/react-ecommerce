@@ -2,16 +2,11 @@ import { useAuthValue } from "../../context/AuthContext"
 import { CartContext } from "../../context/CartContext"
 import { useContext, useEffect } from "react"
 import readUserData from "../../utils/readUserData.js";
+import client from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/client-home-page.png"
 
 export default function ClientHomePageContent( {handleSignOut}){
     const {cart, setCart} = useContext(CartContext)
 
-
-    const shoppingCart = cart.map(product => {
-    return(
-             <p key={crypto.randomUUID()}>{product.name}</p>
-         )
-     })
     const currentUser = useAuthValue()
     useEffect(()=>{
         let userUid = currentUser.uid
@@ -30,11 +25,11 @@ export default function ClientHomePageContent( {handleSignOut}){
 
     return(
         <div className="clientHomePageContent">
+            <img src={client} id="client_homepage_icon"></img>
             <h1>
-                You are signed in!
-                Welcome {currentUser.uid}
+                Welcome {currentUser.email}!
             </h1>
-            {shoppingCart}
+            <p>This is your private corner. You can manage your orders, returns and account info right here.</p>
             <p>You created your account: {currentUser.metadata.creationTime}</p>
             <p>Your last login was: {currentUser.metadata.lastSignInTime}</p>
             <button onClick={handleSignOut} id="signout">Sign out</button>

@@ -240,7 +240,7 @@ body {
   background-color: black;
   color: white;
   padding: 25px 10px 10px 10px;
-  height: 300px;
+  height: 200px;
 }
 .footerTitles{
   font-size: 0.8rem;
@@ -736,4 +736,7 @@ Client Home page
   border: 0px;
   letter-spacing: 0.5px;
   font-weight: bold;
+}
+#client_homepage_icon{
+  height: 100px;
 }

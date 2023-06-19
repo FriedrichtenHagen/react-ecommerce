@@ -1,13 +1,10 @@
 To Do:
 
 Backend
-- bug: first item adding/deleting from cart does not seem to work
-  - possible causes: 
-    - async nature of setState()
-    - maybe syncronize the state with a useEffect??
-    - does the routing reset the state?
-- every change (adding, removing, changing amount) to the cart must be syncronized with the database
-- look into a loading animation
+- currently the cart is fetched from the database only on the login page. It should also
+  be fetched when the user reopens the page (and is still logged in)
+- 
+
 
 UI/CSS
 - style shop for desktop view
@@ -15,7 +12,8 @@ UI/CSS
 - all links on home page should lead to the product page
 - look into animation library to animate changes in the prices
 - fix the text alignment for delivery in shopping cart
-
+- add a conditional link in menu to sign in/client home page
+- display content on client home page
 
 ## Available Scripts
 
