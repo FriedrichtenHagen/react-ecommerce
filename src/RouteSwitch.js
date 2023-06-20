@@ -13,7 +13,6 @@ import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
 
-
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
   const {status, toggleStatus} = useToggle()
