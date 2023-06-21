@@ -59,7 +59,9 @@ export default function Header({ cart }){
                     <Link to="/loginpage" className="ctaLink">
                         <img src={userIcon} className="headerIcon" alt="user" />
                     </Link>
-                    <img src={heart} className="headerIcon" alt="heart" />
+                    <Link to="/favorites" className="ctaLink">
+                        <img src={heart} className="headerIcon" alt="heart" />
+                    </Link>
                     <img src={lang} className="headerIcon" alt="language select" />
                     <Link to="/shoppingcart" className="ctaLink">
                         <div className="cartNumber">{cartItemNum}</div>

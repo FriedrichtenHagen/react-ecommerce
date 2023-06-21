@@ -12,6 +12,7 @@ import {AuthProvider} from "./context/AuthContext"
 import {CartProvider} from "./context/CartContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
+import FavoritePage from "./pages/FavoritePage/FavoritePage";
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
@@ -178,6 +179,14 @@ useEffect(() => {
                   {
               
                     currentUser ? <ClientHomePage
+                    cart={cart}/> : <Navigate replace to={"/loginpage"}
+                    
+                    />}
+                />
+                <Route path="/favorites" element=
+                  {
+              
+                    currentUser ? <FavoritePage
                     cart={cart}/> : <Navigate replace to={"/loginpage"}
                     
                     />}

@@ -1,5 +1,9 @@
 To Do:
 
+Frontend Functionality
+- like function: add heart icons
+- widget for newsletter sign up
+
 Backend
 - currently the cart is fetched from the database only on the login page. It should also
   be fetched when the user reopens the page (and is still logged in)
@@ -12,7 +16,6 @@ UI/CSS
 - all links on home page should lead to the product page
 - look into animation library to animate changes in the prices
 - fix the text alignment for delivery in shopping cart
-- add a conditional link in menu to sign in/client home page
 - display content on client home page
 
 ## Available Scripts
