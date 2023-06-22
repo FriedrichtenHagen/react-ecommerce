@@ -17,6 +17,8 @@ UI/CSS
 - look into animation library to animate changes in the prices
 - fix the text alignment for delivery in shopping cart
 - display content on client home page
+- add favicon
+- make sure menu is added to all pages!!!
 
 ## Available Scripts
 

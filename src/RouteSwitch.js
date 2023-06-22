@@ -10,12 +10,14 @@ import LoginPage from "./pages/LoginPage/LoginPage.js";
 import ClientHomePage from "./pages/ClientHomePage/ClientHomePage.js";
 import {AuthProvider} from "./context/AuthContext"
 import {CartProvider} from "./context/CartContext"
+import {FavoritesProvider} from "./context/FavoritesContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
+  const [favorites, setFavorites] = useState([])
   const {status, toggleStatus} = useToggle()
   const [currentUser, setCurrentUser] = useState(null)
 
@@ -150,50 +152,52 @@ useEffect(() => {
   return (
     <BrowserRouter>
       <CartProvider value={{cart: cart, setCart: setCart}}>
-        <AuthProvider value={currentUser}>
-            <MenuContext.Provider value={{status: status, toggleStatus:  toggleStatus}}>
-              <Routes>
-                  <Route path="/" element={<Homepage
+        <FavoritesProvider value={{favorites: favorites, setFavorites: setFavorites}}>
+          <AuthProvider value={currentUser}>
+              <MenuContext.Provider value={{status: status, toggleStatus:  toggleStatus}}>
+                <Routes>
+                    <Route path="/" element={<Homepage
+                      cart={cart}
+                    />} />
+                  <Route path="/category" element={<Category
                     cart={cart}
                   />} />
-                <Route path="/category" element={<Category
-                  cart={cart}
-                />} />
-                <Route path="/productpage/:productName" element={<ProductPage
-                  cart={cart}
-                  handleAddingItemToCart={handleAddingItemToCart}
-                />}/>
-                <Route path="/shoppingcart" element=
-                  {<ShoppingCart
+                  <Route path="/productpage/:productName" element={<ProductPage
                     cart={cart}
-                    handleRemovingItemFromCart={handleRemovingItemFromCart}
-                    handleAmountChange={handleAmountChange}
-                  />}
-                />
-                <Route path="/loginpage" element=
-                  {currentUser ? <Navigate replace to={"/client-home-page"} /> : <LoginPage
-                    cart={cart}
-                  />}
-                />
-                <Route path="/client-home-page" element=
-                  {
-              
-                    currentUser ? <ClientHomePage
-                    cart={cart}/> : <Navigate replace to={"/loginpage"}
-                    
+                    handleAddingItemToCart={handleAddingItemToCart}
+                  />}/>
+                  <Route path="/shoppingcart" element=
+                    {<ShoppingCart
+                      cart={cart}
+                      handleRemovingItemFromCart={handleRemovingItemFromCart}
+                      handleAmountChange={handleAmountChange}
                     />}
-                />
-                <Route path="/favorites" element=
-                  {
-              
-                    currentUser ? <FavoritePage
-                    cart={cart}/> : <Navigate replace to={"/loginpage"}
-                    
+                  />
+                  <Route path="/loginpage" element=
+                    {currentUser ? <Navigate replace to={"/client-home-page"} /> : <LoginPage
+                      cart={cart}
                     />}
-                />
-              </Routes>
-            </MenuContext.Provider>
-          </AuthProvider>
+                  />
+                  <Route path="/client-home-page" element=
+                    {
+                
+                      currentUser ? <ClientHomePage
+                      cart={cart}/> : <Navigate replace to={"/loginpage"}
+                      
+                      />}
+                  />
+                  <Route path="/favorites" element=
+                    {
+                
+                      currentUser ? <FavoritePage
+                      cart={cart}/> : <Navigate replace to={"/loginpage"}
+                      
+                      />}
+                  />
+                </Routes>
+              </MenuContext.Provider>
+            </AuthProvider>
+          </FavoritesProvider>
         </CartProvider>
     </BrowserRouter>
   );
