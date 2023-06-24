@@ -1,51 +1,53 @@
 import heart from "../images/icons/heart.png"
 import heart_favorite from "../images/icons/heart-favorite.png"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useContext } from "react"
 import { FavoritesContext } from "../context/FavoritesContext"
+import { checkForObjectInArray } from "../utils/checkForObjectInArray"
 
 export default function FavoriteButton({product}){
     const { favorites, setFavorites } = useContext(FavoritesContext)
     const [productIsFavorite, setProductIsFavorite] = useState(false)
 
-    // if(checkForObjectInArray(product, favorites)) {
-    //     /* vendors contains the element we're looking for */
-
-    // }
-
-    // function checkForObjectInArray(object, array){
-    // for(let i=0; i<array.length; i++){
-    //     if(array[i].name===object.name&&array[i].size===object.size){
-    //     return i
-    //     }
-    // }
-    //     return false
-    // }
+    
+    useEffect(() => {
+        if(checkForObjectInArray(product, favorites)!== false) {
+            /* vendors contains the element we're looking for */
+            setProductIsFavorite(true)
+        }else(
+            setProductIsFavorite(false)
+        )
+      },[favorites])
 
     function handleFavoriteClick(e){
         console.log(product)
         // stop the redirect to product page
         e.preventDefault()  
-        // add or remove the item from the favorites array
-        
-        // if product is in favorites
 
-                // set state to change heart icon
-                setProductIsFavorite(!productIsFavorite)
-        // if product is not in favorites
-        // addProductToFavorites()
+        // see if product is in favorites array
 
+        if(checkForObjectInArray(product, favorites)!== false) {
+            // product is already in favorites
+            // remove favorite status
+            removeProductFromFavorites()
+        }else{
+            // product is not yet in favorites
+            addProductToFavorites()
+        }
     }
     function addProductToFavorites(){
-        let addedFavorites = favorites.slice()
         setFavorites([...favorites, product])
-
+    }
+    function removeProductFromFavorites(){
+        const productIndex = checkForObjectInArray(product, favorites)
+        let favoriteCopy = favorites.slice()
+        favoriteCopy.splice(productIndex, 1)
+        setFavorites(favoriteCopy)
     }
 
     return(
 
         <div className="favoriteButton">
-            
                 <img src={productIsFavorite ? heart_favorite : heart} onClickCapture={handleFavoriteClick} alt="heart" id="favoriteHeartIcon"/>
         </div>
     )

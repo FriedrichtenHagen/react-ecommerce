@@ -14,6 +14,8 @@ import {FavoritesProvider} from "./context/FavoritesContext"
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import updateUserData from "./utils/updateUserData";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
+import { checkForObjectInArray } from "./utils/checkForObjectInArray"
+
 
 const RouteSwitch = () => {
   const [cart, setCart] = useState([])
@@ -109,14 +111,7 @@ const RouteSwitch = () => {
     // });
 
   }
-  function checkForObjectInArray(object, array){
-    for(let i=0; i<array.length; i++){
-      if(array[i].name===object.name&&array[i].size===object.size){
-        return i
-      }
-    }
-    return false
-  }
+
 
 // on initial render
 useEffect(() => {
