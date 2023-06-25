@@ -1,14 +1,14 @@
 To Do:
 
 Frontend Functionality
-- like function: add heart icons
+- display favorites on favorite page
 - widget for newsletter sign up
 
 Backend
 - currently the cart is fetched from the database only on the login page. It should also
   be fetched when the user reopens the page (and is still logged in)
-- 
-
+- save the favorites to the db (maybe combine cart and favorites??)
+- update security rules for database
 
 UI/CSS
 - style shop for desktop view

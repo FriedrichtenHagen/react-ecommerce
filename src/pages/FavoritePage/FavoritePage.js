@@ -1,6 +1,11 @@
 import Footer from "../../components/Footer"
 import Header from "../../components/Header"
 
+import { useContext } from "react"
+import { FavoritesContext } from "../../context/FavoritesContext"
+
+import ProductCard from "../../components/ProductCard"
+
 
 export default function FavoritePage({cart}){
 
@@ -17,11 +22,21 @@ export default function FavoritePage({cart}){
 
 
 function FavoritePageContent(){
+    const { favorites, setFavorites } = useContext(FavoritesContext)
+
+
+    const currentFavs = favorites.map((fav)=>
+        <ProductCard product={fav}/>        
+    )
+
     return(
 
-        <div className="FavoriteContent">
-            <h1>Your items</h1>
-            All in one place
+        <div className="favoriteContent">
+            <div className="favoriteHeader">
+                <h1>Your favorite items</h1>
+                All in one place
+            </div>
+            <div className="favoriteGrid">{currentFavs}</div>
         </div>
 
     )

@@ -748,7 +748,7 @@ Client Home page
 likeContent page
 */
 
-.FavoriteContent{
+.favoriteContent{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -756,6 +756,16 @@ likeContent page
   text-align: center;
   padding: 0px 15px;
   min-height: 600px;
+}
+.favoriteHeader{
+  margin-bottom: 10px;
+}
+.favoriteHeader>h1{
+  margin-bottom: 5px;
+}
+.favoriteGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .favoriteButton{
 
