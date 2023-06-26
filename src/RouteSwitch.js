@@ -38,18 +38,6 @@ const RouteSwitch = () => {
       // add item to cart  
       setCart([...cart, selectedProduct])
     }
-
-    // // update the cart change to the database
-    // const auth = getAuth();
-    // onAuthStateChanged(auth, (user) => {
-    //   if (user) {
-    //     // User is signed in
-    //     updateUserData({cart: cart}, user.uid)
-    //   } else {
-    //       // User is signed out
-    //     console.log("user is not signed in. Cart change cant be saved.")
-    //   }
-    // });
   }
   function handleRemovingItemFromCart(selectedProduct){
     
@@ -71,21 +59,6 @@ const RouteSwitch = () => {
       setCart(deletedCart)
 
     }
-    
-    // // update the cart change to the database
-    // const auth = getAuth();
-    // onAuthStateChanged(auth, (user) => {
-    //   if (user) {
-    //     // User is signed in
-    //     updateUserData({cart: cart}, user.uid)
-    //   } else {
-    //       // User is signed out
-    //     console.log("user is not signed in. Cart change cant be saved.")
-    //   }
-    // });
-
-
-
   }
   // change the product amount via select
   function handleAmountChange(e, product){
@@ -143,6 +116,21 @@ useEffect(() => {
       console.log("user is not signed in. Cart change cant be saved.")
     }
 },[cart])
+// watch for changes to the favorites
+useEffect(() => {
+  // const auth = getAuth();
+  //   onAuthStateChanged(auth, (user) => {
+    if (currentUser) {
+      // User is signed in
+      // update the cart change to the database 
+      updateUserData({favorites: favorites}, currentUser.uid)
+        
+    } else {
+        // User is signed out
+      console.log("user is not signed in. Favorte change cant be saved.")
+    }
+},[cart])
+
 
   return (
     <BrowserRouter>

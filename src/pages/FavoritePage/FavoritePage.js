@@ -3,7 +3,7 @@ import Header from "../../components/Header"
 
 import { useContext } from "react"
 import { FavoritesContext } from "../../context/FavoritesContext"
-
+import Menu from '../../components/Menu';
 import ProductCard from "../../components/ProductCard"
 
 
@@ -15,6 +15,7 @@ export default function FavoritePage({cart}){
             <Header cart={cart}/>
             <FavoritePageContent/>
             <Footer/>
+            <Menu/>
         </div>
     )
 }

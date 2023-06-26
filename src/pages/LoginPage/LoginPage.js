@@ -4,7 +4,7 @@ import RegistrationForm from "./RegistrationForm"
 import LoginForm from "./LoginForm"
 import { useState } from "react"
 import Expander from "./Expander"
-
+import Menu from '../../components/Menu';
 export default function LoginPage({cart}){
 
 
@@ -13,6 +13,7 @@ export default function LoginPage({cart}){
             <Header cart={cart}/>
             <SignIn/>
             <Footer/>
+            <Menu/>
         </div>
     )
 }

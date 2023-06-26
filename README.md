@@ -1,8 +1,9 @@
 To Do:
 
 Frontend Functionality
-- display favorites on favorite page
 - widget for newsletter sign up
+- favorites page when user is not logged in 
+  - display the favorites and a  message/ button to login
 
 Backend
 - currently the cart is fetched from the database only on the login page. It should also

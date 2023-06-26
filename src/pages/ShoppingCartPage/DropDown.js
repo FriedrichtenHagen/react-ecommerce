@@ -28,8 +28,11 @@ export default function DropDown({updateActiveDiscountCode}){
             updateActiveDiscountCode({value: discountValue, type: discountType})
             setDiscountCodeValid("valid")
         } else{
-            //alert("The code you entered is not correct.")
+            
             setDiscountCodeValid("invalid")
+            
+            setTimeout(()=> alert("The code you entered is not correct. Try XMAS23"),500)
+            
         }
     }
 
