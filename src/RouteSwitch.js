@@ -115,7 +115,7 @@ useEffect(() => {
         // User is signed out
       console.log("user is not signed in. Cart change cant be saved.")
     }
-},[cart])
+},[cart, currentUser])
 // watch for changes to the favorites
 useEffect(() => {
   // const auth = getAuth();
@@ -129,7 +129,7 @@ useEffect(() => {
         // User is signed out
       console.log("user is not signed in. Favorte change cant be saved.")
     }
-},[cart])
+},[favorites, currentUser])
 
 
   return (
