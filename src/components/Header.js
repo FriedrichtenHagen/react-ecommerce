@@ -62,7 +62,7 @@ export default function Header({ cart }){
                     <Link to="/favorites" className="ctaLink">
                         <img src={heart} className="headerIcon" alt="heart" />
                     </Link>
-                    <img src={lang} className="headerIcon" alt="language select" />
+                    {/* <img src={lang} className="headerIcon" alt="language select" /> */}
                     <Link to="/shoppingcart" className="ctaLink">
                         <div className="cartNumber">{cartItemNum}</div>
                         <img src={shoppingcart} className="headerIcon" alt="cart" />

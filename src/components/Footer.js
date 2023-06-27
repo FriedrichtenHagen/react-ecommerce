@@ -7,11 +7,11 @@ export default function Footer(){
     return(
         <div className="footer">
             <div className="footerTitles">
-                <div id="mitgliedschaft">Plus Mitgliedschaft beenden</div>
-                <div id="impressum">Impressum</div>
-                <div id="agb">AGB </div>
-                <div id="datenschutz">Datenschutz</div>
-                <div id="dateneinstellungen">Dateneinstellungen</div>
+                <div id="mitgliedschaft">Cancle Plus Membership</div>
+                <div id="impressum">Imprint</div>
+                <div id="agb">Terms & Conditions </div>
+                <div id="datenschutz">Privacy Notice</div>
+                <div id="dateneinstellungen">Data Preferences</div>
             </div>
             <div className="socialIconCont">
                 <div className="socialTitle">

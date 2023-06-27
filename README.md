@@ -8,7 +8,7 @@ Frontend Functionality
 Backend
 - currently the cart is fetched from the database only on the login page. It should also
   be fetched when the user reopens the page (and is still logged in)
-- save the favorites to the db (maybe combine cart and favorites??)
+- fetch the cart and favorites on log in
 - update security rules for database
 
 UI/CSS

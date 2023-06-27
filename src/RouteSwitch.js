@@ -172,10 +172,9 @@ useEffect(() => {
                   <Route path="/favorites" element=
                     {
                 
-                      currentUser ? <FavoritePage
-                      cart={cart}/> : <Navigate replace to={"/loginpage"}
-                      
-                      />}
+                      <FavoritePage
+                      cart={cart}/>                     
+                    }
                   />
                 </Routes>
               </MenuContext.Provider>
