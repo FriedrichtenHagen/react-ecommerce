@@ -104,8 +104,6 @@ useEffect(() => {
 
 // watch for changes to the cart
 useEffect(() => {
-  // const auth = getAuth();
-  //   onAuthStateChanged(auth, (user) => {
     if (currentUser) {
       // User is signed in
       // update the cart change to the database 
@@ -115,7 +113,8 @@ useEffect(() => {
         // User is signed out
       console.log("user is not signed in. Cart change cant be saved.")
     }
-},[cart, currentUser])
+    // eslint-disable-next-line
+},[cart])
 // watch for changes to the favorites
 useEffect(() => {
   // const auth = getAuth();
@@ -129,7 +128,8 @@ useEffect(() => {
         // User is signed out
       console.log("user is not signed in. Favorte change cant be saved.")
     }
-},[favorites, currentUser])
+    // eslint-disable-next-line
+},[favorites])
 
 
   return (
