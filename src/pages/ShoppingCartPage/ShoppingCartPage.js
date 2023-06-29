@@ -75,7 +75,9 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
             />
         )
     })
-
+    function handleCheckoutClick(){
+        alert("Checkout currently not supported")
+    }
 
     return (
         <div className="shoppingCart">
@@ -125,7 +127,7 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
                             {prices.total} €
                         </div>
                     </div>
-                    <button className="checkout">GO TO CHECKOUT</button>
+                    <button className="checkout" onClick={handleCheckoutClick}>GO TO CHECKOUT</button>
                 </div>
             </div>
             <DropDown updateActiveDiscountCode={updateActiveDiscountCode}/>

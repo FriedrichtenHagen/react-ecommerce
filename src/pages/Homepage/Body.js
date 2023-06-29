@@ -23,13 +23,21 @@ export default function Body(){
                     <img src={backpack} id="backpack" alt="backpack" />
                 </div>
                 <div className="discoverMore">
-                            <Link to="/category" className="discoverCta">Discover more:</Link>
+                            <Link to="/category" className="ctaLink">Discover more:</Link>
                         <ul className="discoverUl">
-                            <li>Accessories</li>
-                            <li>Kids</li>
-                            <li>Customize</li>
-                            <li>Our Promise</li>
-                            <li>Sale</li>
+                            <li>
+                                <Link to="category" className="ctaLink">Accessories</Link>
+                            </li>
+                            <li>
+                            <Link to="category" className="ctaLink">Kids</Link></li>
+                            <li>
+                            <Link to="category" className="ctaLink">Customize</Link></li>
+                            <li>
+                            <Link to="category" className="ctaLink">Our Promise</Link>
+                           </li>
+                            <li>
+                            <Link to="category" className="ctaLink">Sale</Link>
+                           </li>
                         </ul>
                     </div>
             </div>
@@ -40,9 +48,7 @@ export default function Body(){
                         <h2 className="closeH2">New Colors Are Here</h2>
                     </div>
                     <div className="b2Cta">
-                        <div className="b2CtaText">
-                            Shop now
-                        </div>
+                    <Link to="category" className="ctaLink">Shop Now</Link>
                         <img src={arrow} id="ctaArrow" alt="arrow right" />
                     </div>
                     

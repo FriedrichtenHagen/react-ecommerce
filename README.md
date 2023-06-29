@@ -1,14 +1,12 @@
 To Do:
 
 Frontend Functionality
-- widget for newsletter sign up
 - favorites page when user is not logged in 
   - display the favorites and a  message/ button to login
 
 Backend
 - currently the cart is fetched from the database only on the login page. It should also
   be fetched when the user reopens the page (and is still logged in)
-- fetch the cart and favorites on log in
 - update security rules for database
 
 UI/CSS
