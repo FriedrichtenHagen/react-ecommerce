@@ -16,5 +16,6 @@ export default async function updateUserData(userData, uid){
       , { merge: true });
     } catch (e) {
       console.error("Error adding document: ", e);
+      console.table(userData)
     }
   }

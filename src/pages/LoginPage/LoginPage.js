@@ -36,7 +36,7 @@ function SignIn(){
                 expandContent={<LoginForm/>}
                 showOnActive={true}/>
             <Expander
-                expanderTopText="I`m new here"
+                expanderTopText="I´m new here"
                 expanderButtonText="Register"
                 toggleLoginActive={toggleLoginActive}
                 loginActive={loginActive}

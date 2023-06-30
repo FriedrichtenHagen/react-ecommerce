@@ -1,16 +1,16 @@
 import { useState } from "react"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import { doc, setDoc } from "firebase/firestore"; 
-
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
+import { FavoritesContext } from "../../context/FavoritesContext"
 import updateUserData from "../../utils/updateUserData";
 
 export default function RegistrationForm(){
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
     const {cart} = useContext(CartContext)
+    const {favorites} = useContext(FavoritesContext)
     // add error handling to form
 
 
@@ -22,7 +22,8 @@ export default function RegistrationForm(){
             lastName: e.target[1].value,
             email: e.target[2].value,
             password: e.target[3].value,
-            cart: cart
+            cart: cart,
+            favorites: favorites
         }
         // create new user
         const auth = getAuth();
@@ -30,7 +31,7 @@ export default function RegistrationForm(){
           .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-
+            console.log(userData)
             // create a customer document with the user.id 
             updateUserData(userData, user.uid)
 

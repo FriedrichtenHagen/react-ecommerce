@@ -23,11 +23,11 @@ export default function FavoritePage({cart}){
 
 
 function FavoritePageContent(){
-    const { favorites, setFavorites } = useContext(FavoritesContext)
+    const { favorites } = useContext(FavoritesContext)
 
 
     const currentFavs = favorites.map((fav)=>
-        <ProductCard product={fav}/>        
+        <ProductCard product={fav} key={crypto.randomUUID()}/>        
     )
 
     return(
