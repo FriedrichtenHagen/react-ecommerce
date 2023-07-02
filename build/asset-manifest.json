@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.d7a68604.css",
-    "main.js": "/static/js/main.5f306829.js",
-    "static/media/colors.webp": "/static/media/colors.f7f394f233aea9104116.webp",
-    "static/media/32oz-WM-Cherry-Blossom-Front-505x763.png": "/static/media/32oz-WM-Cherry-Blossom-Front-505x763.67904210856684a26b57.png",
-    "static/media/32oz-WM-Mocha-Front-1-505x763.png": "/static/media/32oz-WM-Mocha-Front-1-505x763.2234fb677fb32ca2c588.png",
-    "static/media/32oz-WM-Jade-Front-1-505x763.png": "/static/media/32oz-WM-Jade-Front-1-505x763.63e910d4f574778e9f9c.png",
-    "static/media/backpack.jpg": "/static/media/backpack.400d905495b0c5448205.jpg",
-    "static/media/32oz-WM-Butter-Front-505x763.webp": "/static/media/32oz-WM-Butter-Front-505x763.861414cec1a00f1c823e.webp",
-    "static/media/Nalgene_32oz_WM_Pear_768x1152_FRONT-505x758.jpg": "/static/media/Nalgene_32oz_WM_Pear_768x1152_FRONT-505x758.df9dbe0a9bc92d0cd640.jpg",
-    "static/media/32oz-WM-Clementine-Sustain_FRONT-2-505x763.jpg": "/static/media/32oz-WM-Clementine-Sustain_FRONT-2-505x763.8ea9b34738febcdb0c51.jpg",
-    "static/media/empty-cart.png": "/static/media/empty-cart.f70a01629a82e2c4c310.png",
-    "static/media/32oz-WM-Denim-Front-505x758.jpg": "/static/media/32oz-WM-Denim-Front-505x758.a8dc94277b7e776f50c6.jpg",
-    "static/media/user.png": "/static/media/user.557587208eb9e232f2ca.png",
-    "static/media/user-logged-in.png": "/static/media/user-logged-in.3391a5800d33d8430fbc.png",
-    "static/media/32oz-WM-Cotton-Front-4-505x763.jpg": "/static/media/32oz-WM-Cotton-Front-4-505x763.334e7629e6589736bc1c.jpg",
-    "static/media/heart.png": "/static/media/heart.c412cbaead4744166c20.png",
-    "static/media/client-home-page.png": "/static/media/client-home-page.9db9e94506586a7a9ebe.png",
-    "static/media/shopping-cart.png": "/static/media/shopping-cart.26599e765bba7672745d.png",
-    "static/media/logo-nalgene120x30.webp": "/static/media/logo-nalgene120x30.d97eb501d54b537fa562.webp",
-    "index.html": "/index.html",
-    "main.d7a68604.css.map": "/static/css/main.d7a68604.css.map",
-    "main.5f306829.js.map": "/static/js/main.5f306829.js.map"
+    "main.css": "/react-ecommerce/static/css/main.d7a68604.css",
+    "main.js": "/react-ecommerce/static/js/main.e04cbbb2.js",
+    "static/media/colors.webp": "/react-ecommerce/static/media/colors.f7f394f233aea9104116.webp",
+    "static/media/32oz-WM-Cherry-Blossom-Front-505x763.png": "/react-ecommerce/static/media/32oz-WM-Cherry-Blossom-Front-505x763.67904210856684a26b57.png",
+    "static/media/32oz-WM-Mocha-Front-1-505x763.png": "/react-ecommerce/static/media/32oz-WM-Mocha-Front-1-505x763.2234fb677fb32ca2c588.png",
+    "static/media/32oz-WM-Jade-Front-1-505x763.png": "/react-ecommerce/static/media/32oz-WM-Jade-Front-1-505x763.63e910d4f574778e9f9c.png",
+    "static/media/backpack.jpg": "/react-ecommerce/static/media/backpack.400d905495b0c5448205.jpg",
+    "static/media/32oz-WM-Butter-Front-505x763.webp": "/react-ecommerce/static/media/32oz-WM-Butter-Front-505x763.861414cec1a00f1c823e.webp",
+    "static/media/Nalgene_32oz_WM_Pear_768x1152_FRONT-505x758.jpg": "/react-ecommerce/static/media/Nalgene_32oz_WM_Pear_768x1152_FRONT-505x758.df9dbe0a9bc92d0cd640.jpg",
+    "static/media/32oz-WM-Clementine-Sustain_FRONT-2-505x763.jpg": "/react-ecommerce/static/media/32oz-WM-Clementine-Sustain_FRONT-2-505x763.8ea9b34738febcdb0c51.jpg",
+    "static/media/empty-cart.png": "/react-ecommerce/static/media/empty-cart.f70a01629a82e2c4c310.png",
+    "static/media/32oz-WM-Denim-Front-505x758.jpg": "/react-ecommerce/static/media/32oz-WM-Denim-Front-505x758.a8dc94277b7e776f50c6.jpg",
+    "static/media/user.png": "/react-ecommerce/static/media/user.557587208eb9e232f2ca.png",
+    "static/media/user-logged-in.png": "/react-ecommerce/static/media/user-logged-in.3391a5800d33d8430fbc.png",
+    "static/media/32oz-WM-Cotton-Front-4-505x763.jpg": "/react-ecommerce/static/media/32oz-WM-Cotton-Front-4-505x763.334e7629e6589736bc1c.jpg",
+    "static/media/heart.png": "/react-ecommerce/static/media/heart.c412cbaead4744166c20.png",
+    "static/media/client-home-page.png": "/react-ecommerce/static/media/client-home-page.9db9e94506586a7a9ebe.png",
+    "static/media/shopping-cart.png": "/react-ecommerce/static/media/shopping-cart.26599e765bba7672745d.png",
+    "static/media/logo-nalgene120x30.webp": "/react-ecommerce/static/media/logo-nalgene120x30.d97eb501d54b537fa562.webp",
+    "index.html": "/react-ecommerce/index.html",
+    "main.d7a68604.css.map": "/react-ecommerce/static/css/main.d7a68604.css.map",
+    "main.e04cbbb2.js.map": "/react-ecommerce/static/js/main.e04cbbb2.js.map"
   },
   "entrypoints": [
     "static/css/main.d7a68604.css",
-    "static/js/main.5f306829.js"
+    "static/js/main.e04cbbb2.js"
   ]
 }
