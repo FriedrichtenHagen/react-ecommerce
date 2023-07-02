@@ -3,7 +3,7 @@ import shoppingcart from "/home/friedrichtenhagen/ecommerce-site/src/images/icon
 import heart from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/heart.png"
 import user from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/user.png"
 import userLoggedIn from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/user-logged-in.png"
-import lang from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/internet.png"
+// import lang from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/internet.png"
 import hamburger from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/hamburger.png"
 import search from "/home/friedrichtenhagen/ecommerce-site/src/images/icons/search.png"
 import {Link } from "react-router-dom";

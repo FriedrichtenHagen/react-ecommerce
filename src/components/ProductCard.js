@@ -1,10 +1,8 @@
 import {Link} from "react-router-dom";
 import FavoriteButton from "./FavoriteButton";
-import { useContext } from "react"
-import { FavoritesContext } from "../context/FavoritesContext"
+
 
 export default function ProductCard({product}){
-    const { favorites, setFavorites } = useContext(FavoritesContext)
 
 
 
