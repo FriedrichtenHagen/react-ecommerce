@@ -133,7 +133,7 @@ useEffect(() => {
 
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <CartProvider value={{cart: cart, setCart: setCart}}>
         <FavoritesProvider value={{favorites: favorites, setFavorites: setFavorites}}>
           <AuthProvider value={currentUser}>
