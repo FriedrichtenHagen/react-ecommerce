@@ -2,6 +2,7 @@ To Do:
 
 Frontend Functionality
 - favorites page user is not logged in: button to login
+- clicking favorite should not cause all hearts to rerender
 
 Mobile
 - make hearts bigger (hard to click)

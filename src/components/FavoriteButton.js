@@ -1,5 +1,5 @@
 import heart from "../images/icons/heart.png"
-import heart_favorite from "../images/icons/heart-favorite.png"
+import heart_favorite from "../images/icons/heart-favorite2.png"
 import { useState, useEffect } from "react";
 import { useContext } from "react"
 import { FavoritesContext } from "../context/FavoritesContext"
