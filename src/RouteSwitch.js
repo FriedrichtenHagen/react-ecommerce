@@ -133,7 +133,7 @@ useEffect(() => {
 
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/react-ecommerce">
       <CartProvider value={{cart: cart, setCart: setCart}}>
         <FavoritesProvider value={{favorites: favorites, setFavorites: setFavorites}}>
           <AuthProvider value={currentUser}>
