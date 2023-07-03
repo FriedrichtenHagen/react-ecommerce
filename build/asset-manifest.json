@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-ecommerce/static/css/main.d7a68604.css",
-    "main.js": "/react-ecommerce/static/js/main.e04cbbb2.js",
+    "main.js": "/react-ecommerce/static/js/main.6e8ffb6f.js",
     "static/media/colors.webp": "/react-ecommerce/static/media/colors.f7f394f233aea9104116.webp",
     "static/media/32oz-WM-Cherry-Blossom-Front-505x763.png": "/react-ecommerce/static/media/32oz-WM-Cherry-Blossom-Front-505x763.67904210856684a26b57.png",
     "static/media/32oz-WM-Mocha-Front-1-505x763.png": "/react-ecommerce/static/media/32oz-WM-Mocha-Front-1-505x763.2234fb677fb32ca2c588.png",
@@ -21,10 +21,10 @@
     "static/media/logo-nalgene120x30.webp": "/react-ecommerce/static/media/logo-nalgene120x30.d97eb501d54b537fa562.webp",
     "index.html": "/react-ecommerce/index.html",
     "main.d7a68604.css.map": "/react-ecommerce/static/css/main.d7a68604.css.map",
-    "main.e04cbbb2.js.map": "/react-ecommerce/static/js/main.e04cbbb2.js.map"
+    "main.6e8ffb6f.js.map": "/react-ecommerce/static/js/main.6e8ffb6f.js.map"
   },
   "entrypoints": [
     "static/css/main.d7a68604.css",
-    "static/js/main.e04cbbb2.js"
+    "static/js/main.6e8ffb6f.js"
   ]
 }
