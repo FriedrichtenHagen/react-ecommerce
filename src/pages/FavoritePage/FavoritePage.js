@@ -5,6 +5,7 @@ import { useContext } from "react"
 import { FavoritesContext } from "../../context/FavoritesContext"
 import Menu from '../../components/Menu';
 import ProductCard from "../../components/ProductCard"
+import { LoginSuggestion } from "../../components/LoginSuggestion";
 
 
 export default function FavoritePage({cart}){
@@ -38,6 +39,7 @@ function FavoritePageContent(){
                 All in one place
             </div>
             <div className="favoriteGrid">{currentFavs}</div>
+            <LoginSuggestion item="favorites"/>
         </div>
 
     )

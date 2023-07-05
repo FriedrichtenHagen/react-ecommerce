@@ -20,12 +20,10 @@ export default function FavoriteButton({product}){
       },[favorites])
 
     function handleFavoriteClick(e){
-        console.log(product)
         // stop the redirect to product page
         e.preventDefault()  
 
         // see if product is in favorites array
-
         if(checkForObjectInArray(product, favorites)!== false) {
             // product is already in favorites
             // remove favorite status
