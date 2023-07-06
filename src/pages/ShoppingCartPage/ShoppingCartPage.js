@@ -76,7 +76,8 @@ export default function ShoppingCart( {cart, handleRemovingItemFromCart, handleA
         )
     })
     function handleCheckoutClick(){
-        alert("Checkout currently not supported")
+        setTimeout(()=> {alert("Checkout currently not supported")}, 800)
+        
     }
 
     return (

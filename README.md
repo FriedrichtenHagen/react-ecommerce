@@ -1,7 +1,6 @@
 To Do:
 
 Frontend Functionality
-- favorites page user is not logged in: button to login
 - error handling on form
 
 Backend

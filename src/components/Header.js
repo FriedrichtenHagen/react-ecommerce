@@ -36,8 +36,9 @@ export default function Header({ cart }){
         cartItemNum = cartItemNum + product.amount
     })
 
-    function handleSearchInput(e){
 
+
+    function handleSearchInput(e){
         setSearchState(e.target.value)
     }
     function handleSearchStart(e){

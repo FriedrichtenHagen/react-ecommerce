@@ -63,6 +63,11 @@ body {
 
 }
 
+
+
+
+
+
 .lowerHeader{
   display: flex;
   align-items: center;
@@ -319,6 +324,13 @@ body {
   height: 30px;
   font-size: 1.5rem;
 }
+.addToCart{
+  transition: all 0.3s ease-in-out;
+}
+button.addToCart:active {
+	transform: scale(1.05);
+	transition: .1s;
+}
 
 .pickSize{
   justify-content: space-between;
@@ -496,9 +508,14 @@ button.checkout{
   border: 0px;
   letter-spacing: 0.5px;
   font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
 
+button.checkout:active {
+	transform: scale(1.05);
+	transition: .1s;
+}
 
 
 @keyframes shake {
@@ -794,3 +811,4 @@ likeContent page
 .loginSuggestion{
   margin: 30px 0px 20px 0px;
 }
+
