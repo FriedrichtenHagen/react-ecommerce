@@ -1,7 +1,8 @@
 To Do:
 
 Frontend Functionality
-- error handling on form
+- error handling on form (using library?)
+- write cookies to save the cart without logging in
 
 Backend
 - currently the cart is fetched from the database only on the login page. It should also
