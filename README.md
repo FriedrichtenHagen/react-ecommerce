@@ -13,7 +13,15 @@ A copy of the zalando frontend (for mobile) with a simple firestore backend. The
 
 Here is a link to a live demo: https://friedrichtenhagen.github.io/Minesweeper/
 
-![game screenshot](/minesweeper-screenshot.png)
+![landing page screenshot](/screenshots/landingpage.png)
+![landing page screenshot](/screenshots/products.png)
+![landing page screenshot](/screenshots/cart-empty.png)
+![landing page screenshot](/screenshots/cart1.png)
+![landing page screenshot](/screenshots/cart2.png)
+![landing page screenshot](/screenshots/favorites.png)
+![landing page screenshot](/screenshots/search.png)
+![landing page screenshot](/screenshots/login.png)
+
 
 ## How it's made:
 
